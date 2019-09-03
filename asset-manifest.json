@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/manabu/static/css/main.2c065afb.chunk.css",
+    "main.js": "/manabu/static/js/main.cce703a5.chunk.js",
+    "main.js.map": "/manabu/static/js/main.cce703a5.chunk.js.map",
+    "runtime~main.js": "/manabu/static/js/runtime~main.292a5f90.js",
+    "runtime~main.js.map": "/manabu/static/js/runtime~main.292a5f90.js.map",
+    "static/js/2.89e16e46.chunk.js": "/manabu/static/js/2.89e16e46.chunk.js",
+    "static/js/2.89e16e46.chunk.js.map": "/manabu/static/js/2.89e16e46.chunk.js.map",
+    "index.html": "/manabu/index.html",
+    "precache-manifest.3c79481d98408e4c4f7c61d322a1af33.js": "/manabu/precache-manifest.3c79481d98408e4c4f7c61d322a1af33.js",
+    "service-worker.js": "/manabu/service-worker.js",
+    "static/css/main.2c065afb.chunk.css.map": "/manabu/static/css/main.2c065afb.chunk.css.map"
+  }
+}
