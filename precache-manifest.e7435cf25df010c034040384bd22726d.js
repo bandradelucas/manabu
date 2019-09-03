@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f627e0d1f81c76f25db9f28749c435cd",
+    "revision": "332a7e7d8470dd55411a15e4f7e04606",
     "url": "/manabu/index.html"
   },
   {
-    "revision": "ffb6e9c8984fc71fafea",
+    "revision": "2ce5e0f039f2f49f2cd2",
     "url": "/manabu/static/css/main.2c065afb.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manabu/static/js/2.89e16e46.chunk.js"
   },
   {
-    "revision": "ffb6e9c8984fc71fafea",
-    "url": "/manabu/static/js/main.cce703a5.chunk.js"
+    "revision": "2ce5e0f039f2f49f2cd2",
+    "url": "/manabu/static/js/main.be5f36ad.chunk.js"
   },
   {
     "revision": "bc029a33b0b986f1e0c2",
