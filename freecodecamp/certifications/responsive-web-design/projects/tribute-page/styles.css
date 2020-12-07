@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: Ubuntu, sans-serif;
+}
+
+#main {
+  margin: auto;
+  max-width: 800px;
+}
+
+.quotes {
+  list-style-type: none;
+}
+
+.quotes li {
+  margin-bottom: 10px;
+  padding: 20px 25px;
+  position: relative;
+  background-color: #EEEEEE;
+  text-indent: 1em;
+}
+
+.quotes li:before {
+  content: '\201C';
+  position: absolute;
+  left: 5px;
+  top: 0;
+  color: #bdbdbd;
+  font-size: 54px;
+  text-indent: 0;
+}
+
+.quotes li:after {
+  content: '\201D';
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+  color: #bdbdbd;
+  font-size: 54px;
+  text-indent: 0;
+}
