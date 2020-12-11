@@ -1,12 +1,47 @@
-body {
+* {
+  padding: 0;
   margin: 0;
+}
+
+body {
   font-family: Ubuntu, sans-serif;
-  background: url(assets/images/obito-defeated.jpg) no-repeat center;
+  background-image: url(assets/images/obito-fury.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(50px);
 }
 
 #main {
   margin: auto;
   max-width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 2px 2px #000000;
+    color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+h2::before {
+    content: "\00BB  "
+}
+
+a {
+    text-decoration: none;
+    color: pink;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .quotes {
@@ -53,4 +88,14 @@ body {
   width: 100%;
   line-height: 30px;
   background-color: #d7d7d7;
+}
+
+footer {
+    margin: 15px 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+footer span {
+    color: #e25555;
 }
