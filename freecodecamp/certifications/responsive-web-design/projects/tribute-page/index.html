@@ -1,61 +1,95 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <title>Tribute Page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <main id="main">
-        <h1>Tribute to Obito</h1>
-        <h2>Quotes</h2>
+      <h1 id="title">Tribute to Obito</h1>
+      <div id="img-div">
+        <img
+          id="image"
+          src="assets/images/obito-vs-konan.jpg"
+          alt="Obito vs Konan: After spending all chakra in his final move, Konan is surprised by Obito's survival"
+        />
+        <figcaption id="img-caption">
+          Obito vs Konan: After spending all chakra in his final move, Konan is
+          surprised by Obito's survival
+        </figcaption>
+      </div>
+      <h2>Quotes</h2>
+      <section id="tribute-info">
         <ul class="quotes">
-            <li><span>To Kakashi</span>Those who break the rules are trash, but those who abandon their comrades are
-                worse than
-                trash!
-                If I'm going to be called trash either way, I'd rather break the rules! And if that somehow makes me
-                anything
-                less than a real shinobi, then I'll crush all of the so-called "real" shinobi!</li>
-            <li><span>To Kakashi</span>I'm about to… die… but I'll become your eye… and see the future with you.</li>
-            <li><span>To Pain and Konan</span>The true power of the Sharingan… this is Madara Uchiha's power!"
-                (写輪眼の本当の力が…
-                このうちはマダラの力が!, "Sharingan no hontō no chikara ga… kono Uchiha Madara no chikara ga!</li>
-            <li><span>Thinking to himself about Sasuke</span>The moment people come to know love, they run the risk of
-                carrying
-                hate.</li>
-            <li><span>To Naruto and Killer B</span>I'm no one… I don't want to be anyone. All I care about is completing
-                the Eye
-                of
-                the Moon Plan. This world is completely worthless… there is nothing left in it but misery.</li>
-            <li><span>Thinking to himself</span>You remind me of myself… Naruto… yeah… just like when I was young… but,
-                that'll
-                all
-                change with time…</li>
-            <li><span>To Kakashi</span>Look! There is nothing in my heart! I don't even feel pain!! You don't have to
-                feel
-                guilty,
-                Kakashi. This windhole was opened by this hell of a world.</li>
-            <li><span>To Madara</span>Now I finally realised that faking one's name and letting others do everything for
-                you is
-                different than entrusting something to one's comrades. I'm not you. The current me is the one who wanted
-                to
-                become Hokage: Obito Uchiha!</li>
-            <li><span>Last words, to Naruto</span>You'll probably have to suffer again from now on… but don't change,
-                keep going
-                your
-                way. You told me that you never change your words… that's your ninja way. Right? Naruto, become Hokage…
-                at all
-                costs.</li>
+          <li>
+            <span>To Kakashi</span>Those who break the rules are trash, but
+            those who abandon their comrades are worse than trash! If I'm going
+            to be called trash either way, I'd rather break the rules! And if
+            that somehow makes me anything less than a real shinobi, then I'll
+            crush all of the so-called "real" shinobi!
+          </li>
+          <li>
+            <span>To Kakashi</span>I'm about to… die… but I'll become your eye…
+            and see the future with you.
+          </li>
+          <li>
+            <span>To Pain and Konan</span>The true power of the Sharingan… this
+            is Madara Uchiha's power!" (写輪眼の本当の力が…
+            このうちはマダラの力が!, "Sharingan no hontō no chikara ga… kono
+            Uchiha Madara no chikara ga!
+          </li>
+          <li>
+            <span>Thinking to himself about Sasuke</span>The moment people come
+            to know love, they run the risk of carrying hate.
+          </li>
+          <li>
+            <span>To Naruto and Killer B</span>I'm no one… I don't want to be
+            anyone. All I care about is completing the Eye of the Moon Plan.
+            This world is completely worthless… there is nothing left in it but
+            misery.
+          </li>
+          <li>
+            <span>Thinking to himself</span>You remind me of myself… Naruto…
+            yeah… just like when I was young… but, that'll all change with time…
+          </li>
+          <li>
+            <span>To Kakashi</span>Look! There is nothing in my heart! I don't
+            even feel pain!! You don't have to feel guilty, Kakashi. This
+            windhole was opened by this hell of a world.
+          </li>
+          <li>
+            <span>To Madara</span>Now I finally realised that faking one's name
+            and letting others do everything for you is different than
+            entrusting something to one's comrades. I'm not you. The current me
+            is the one who wanted to become Hokage: Obito Uchiha!
+          </li>
+          <li>
+            <span>Last words, to Naruto</span>You'll probably have to suffer
+            again from now on… but don't change, keep going your way. You told
+            me that you never change your words… that's your ninja way. Right?
+            Naruto, become Hokage… at all costs.
+          </li>
         </ul>
+        <h3 class="read-more">
+          Read more at
+          <a
+            id="tribute-link"
+            href="https://naruto.fandom.com/wiki/Obito_Uchiha"
+            target="_blank"
+            >Naruto Fandom: Obito Uchiha</a
+          >
+        </h3>
+      </section>
     </main>
     <footer>
-        Made with <span>❤</span> by <a href="https://github.com/bandradelucas">Rukado</a>
+      Made with <span>❤</span> by
+      <a href="https://github.com/bandradelucas">Rukado</a>
     </footer>
-</body>
-
+  </body>
 </html>

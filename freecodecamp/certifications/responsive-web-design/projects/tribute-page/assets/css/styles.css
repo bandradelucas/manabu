@@ -5,10 +5,13 @@
 
 body {
   font-family: Ubuntu, sans-serif;
-  background-image: url(assets/images/obito-fury.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background: rgb(225, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(225, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 #main {
@@ -22,7 +25,6 @@ h3,
 h4,
 h5,
 h6 {
-  text-shadow: 2px 2px #000000;
   color: #ffffff;
 }
 
@@ -41,11 +43,29 @@ h2::before {
 
 a {
   text-decoration: none;
-  color: pink;
+  color: #cb343e;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+#tribute-link {
+  text-shadow: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+
+#img-caption {
+  margin: 0 0 10px;
+  padding: 5px;
+  color: #ffffff;
+  background-color: #111111;
 }
 
 .quotes {
@@ -94,13 +114,23 @@ a:hover {
   background-color: #d7d7d7;
 }
 
+.read-more {
+  margin: 40px 0 60px;
+  color: #111111;
+}
+
 footer {
-  margin: 15px 0;
+  margin: 10px 0 25px;
   text-align: center;
-  text-shadow: 2px 2px #111;
-  color: #ffffff;
+  font-size: 14px;
+  color: #111111;
 }
 
 footer span {
-  color: #e25555;
+  margin: 0 5px;
+  color: #cb343e;
+  background: #fff;
+  text-shadow: 0 0 5px #cb343e, 0 0 10px #cb343e, 0 0 15px #cb343e,
+    0 0 20px #e59a9f, 0 0 30px #e59a9f, 0 0 40px #e59a9f, 0 0 55px #e59a9f,
+    0 0 75px #e59a9f;
 }
