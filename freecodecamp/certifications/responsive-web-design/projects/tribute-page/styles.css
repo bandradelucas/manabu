@@ -9,7 +9,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  backdrop-filter: blur(50px);
 }
 
 #main {
@@ -17,31 +16,36 @@ body {
   max-width: 800px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-shadow: 2px 2px #000000;
-    color: #FFFFFF;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 2px 2px #000000;
+  color: #ffffff;
 }
 
 h1 {
-    text-align: center;
-    margin: 20px 0;
+  text-align: center;
+  margin: 20px 0;
 }
 
 h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 h2::before {
-    content: "\00BB  "
+  content: '\00BB  ';
 }
 
 a {
-    text-decoration: none;
-    color: pink;
+  text-decoration: none;
+  color: pink;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .quotes {
@@ -53,7 +57,7 @@ a:hover {
   margin-bottom: 10px;
   padding: 20px 25px;
   position: relative;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   text-indent: 1em;
 }
 
@@ -91,11 +95,12 @@ a:hover {
 }
 
 footer {
-    margin: 15px 0;
-    text-align: center;
-    color: #FFFFFF;
+  margin: 15px 0;
+  text-align: center;
+  text-shadow: 2px 2px #111;
+  color: #ffffff;
 }
 
 footer span {
-    color: #e25555;
+  color: #e25555;
 }
