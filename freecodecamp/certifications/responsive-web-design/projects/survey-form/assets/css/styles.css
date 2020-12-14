@@ -2,12 +2,20 @@
   --color-bg: #0d1117;
   --color-text: #ffffff;
   --color-link: #cb343e;
-  --color-primary: #f5a405;
+  --color-primary: #ffaa00;
+  --color-primary-dark: #cc8800;
+  --color-primary-light: #ffbb33;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -28,30 +36,21 @@ header {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 720px;
+    max-width: 600px;
   }
 }
 
 .form-group {
-  position: relative;
+  margin: 16px 0 20px;
 }
 
 .form-group label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(0, 5px) scale(1);
-  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
-    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  font-size: 12px;
 }
 
 .form-group:focus-within label {
   color: var(--color-primary);
-  transform: translate(-8px, -14px) scale(0.75);
 }
-
-/* input:valid { outline: solid blue 2px; }
-input:invalid { outline: solid red 2px; } */
 
 .form-control {
   display: block;
@@ -68,8 +67,31 @@ input:invalid { outline: solid red 2px; } */
   outline: none;
 }
 
-.form-control[value=''] + .form-group label {
-  background-color: pink;
+button {
+  width: 100%;
+  padding: 10px 0;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+button.primary {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+button.primary:hover {
+  background-color: var(--color-primary-light);
+}
+
+button.primary:focus {
+  background-color: var(--color-primary-dark);
+}
+
+button:focus {
+  outline: none;
 }
 
 a {
@@ -82,7 +104,7 @@ a:hover {
 }
 
 footer {
-  margin: 10px 0 25px;
+  margin: 50px 0 25px;
   text-align: center;
   font-size: 14px;
 }
