@@ -67,6 +67,18 @@ header {
   outline: none;
 }
 
+select.form-control option {
+  background-color: var(--color-bg);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
 button {
   width: 100%;
   padding: 10px 0;

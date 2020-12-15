@@ -12,9 +12,21 @@
   <body>
     <div class="container">
       <header>
-        <h1>⚔🧙‍♂️🏹🛡🗡 VRMMORPG</h1>
+        <h1 id="title">⚔🧙‍♂️🏹🛡🗡 VRMMORPG</h1>
+        <p id="description">Create your account</p>
       </header>
-      <form>
+      <form id="survey-form">
+        <div class="form-group">
+          <label for="name-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name-label"
+            class="form-control"
+            value=""
+            placeholder="How people call you, or even your nickname"
+          />
+        </div>
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -26,13 +38,14 @@
           />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email-label">Email</label>
           <input
             type="email"
             name="email"
-            id="email"
+            id="email-label"
             class="form-control"
             value=""
+            placeholder="Your best email"
           />
         </div>
         <div class="form-group">
@@ -55,7 +68,55 @@
             value=""
           />
         </div>
-        <button class="primary" type="submit" onclick="event.preventDefault();">
+        <hr />
+        <div class="form-group">
+          <label for="number-label">What is your lucky number?</label>
+          <input
+            type="number"
+            name="lucky_number"
+            id="number-label"
+            class="form-control"
+            value=""
+            min="0"
+            max="9999"
+            placeholder="It's your lucky day"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dropdown">What is your sign?</label>
+          <select id="dropdown" name="sign" class="form-control">
+            <option value="">Select...</option>
+            <option value="aries">♈️ Aries</option>
+            <option value="taurus">♉️ Taurus</option>
+            <option value="gemini">♊️ Gemini</option>
+            <option value="cancer">♋️ Cancer</option>
+            <option value="leo">♌️ Leo</option>
+            <option value="virgo">♍️ Virgo</option>
+            <option value="libra">♎️ Libra</option>
+            <option value="scorpio">♏️ Scorpio</option>
+            <option value="sagitarius">♐️ Sagittarius</option>
+            <option value="capricorn">♑️ Capricorn</option>
+            <option value="aquarius">♒️ Aquarius</option>
+            <option value="pisces">♓️ Pisces</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Which class do you most identify with?</p>
+          <label>
+            <input
+              type="radio"
+              name="class"
+              value="swordman"
+              class="input-radio"
+            />Swordman
+          </label>
+        </div>
+        <button
+          type="submit"
+          id="submit"
+          class="primary"
+          onclick="event.preventDefault();"
+        >
           Sign Up
         </button>
       </form>
