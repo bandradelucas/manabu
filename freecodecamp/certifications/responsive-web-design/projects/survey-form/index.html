@@ -102,14 +102,24 @@
         </div>
         <div class="form-group">
           <p>Which class do you most identify with?</p>
-          <label>
-            <input
-              type="radio"
-              name="class"
-              value="swordman"
-              class="input-radio"
-            />Swordman
-          </label>
+          <div class="classes unselectable">
+            <label label="unselectable">
+              <input
+                type="radio"
+                name="class"
+                value="swordman"
+                class="input-radio"
+              /><span class="icon">⚔</span><span>Swordman</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="class"
+                value="mage"
+                class="input-radio"
+              /><span class="icon">🧙‍♂️</span><span>Mage</span>
+            </label>
+          </div>
         </div>
         <button
           type="submit"

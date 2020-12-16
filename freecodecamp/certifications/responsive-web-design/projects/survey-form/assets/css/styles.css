@@ -18,6 +18,13 @@
   box-sizing: border-box;
 }
 
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 body {
   margin: 0;
   font-family: Ubuntu, sans-serif;
@@ -77,6 +84,31 @@ select.form-control option {
   margin-right: 0.625rem;
   min-height: 1.25rem;
   min-width: 1.25rem;
+}
+
+.classes {
+  display: flex;
+  gap: 20px;
+}
+
+.classes label {
+  width: 50%;
+  height: 200px;
+  border: 1px solid #eeeeee;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  color: var(--color-text);
+}
+
+.classes label span {
+  font-size: 20px;
+}
+
+.classes label span.icon {
+  font-size: 80px;
 }
 
 button {
