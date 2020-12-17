@@ -7,6 +7,12 @@
   --color-primary-light: #ffbb33;
 }
 
+@keyframes glow {
+  to {
+    text-shadow: 0 0 20px var(--color-primary);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,13 +22,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-.unselectable {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 body {
@@ -88,11 +87,13 @@ select.form-control option {
 
 .classes {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .classes label {
-  width: 50%;
+  width: calc(50% - 24px);
+  margin: 12px;
   height: 200px;
   border: 1px solid #eeeeee;
   border-radius: 2px;
@@ -101,6 +102,10 @@ select.form-control option {
   align-items: center;
   flex-direction: column;
   color: var(--color-text);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .classes label span {
@@ -109,6 +114,21 @@ select.form-control option {
 
 .classes label span.icon {
   font-size: 80px;
+}
+
+.classes label input {
+  display: none;
+}
+
+.classes label input:checked ~ span {
+  animation: glow 750ms infinite alternate;
+}
+
+.classes label input:checked ~ span:last-child {
+  animation-name: none;
+  transition: none;
+  color: var(--color-primary);
+  text-shadow: 0 0 4px var(--color-primary);
 }
 
 button {
