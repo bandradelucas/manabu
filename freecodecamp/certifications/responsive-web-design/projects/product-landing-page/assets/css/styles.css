@@ -1,0 +1,30 @@
+:root {
+  --color-bg: #0d1117;
+  --color-text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+header nav {
+  background-color: #222222;
+  display: flex;
+}
+
+header nav ul {
+  display: inline-block;
+}
