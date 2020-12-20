@@ -35,6 +35,10 @@ header {
   text-align: center;
 }
 
+textarea {
+  resize: none;
+}
+
 .container {
   width: 100%;
   margin: auto;
@@ -77,12 +81,25 @@ select.form-control option {
   background-color: var(--color-bg);
 }
 
-.input-radio,
-.input-checkbox {
+.form-group .input-radio,
+.form-group .input-checkbox {
+  display: block;
+  margin: 0 0 15px;
+  font-size: 18px;
+}
+
+.input-radio input,
+.input-checkbox input {
+  margin-right: 10px;
+  min-height: 20px;
+  min-width: 20px;
+  vertical-align: middle;
+}
+
+.input-checkbox span {
   display: inline-block;
-  margin-right: 0.625rem;
-  min-height: 1.25rem;
-  min-width: 1.25rem;
+  width: 30px;
+  text-align: center;
 }
 
 .classes {
@@ -106,6 +123,7 @@ select.form-control option {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
 .classes label span {
