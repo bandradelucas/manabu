@@ -1,6 +1,7 @@
 :root {
-  --color-bg: #0d1117;
-  --color-text: #ffffff;
+  --color-bg: #eeeeee;
+  --color-text: #333333;
+  --color-white: #ffffff;
 }
 
 * {
@@ -18,13 +19,124 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+#header-img {
+  margin-left: 5px;
+  width: 100px;
+  height: 54px;
+  background-image: url(../images/logo_op3.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 header nav {
-  background-color: #222222;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  color: var(--color-text);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: auto;
+  width: 800px;
+}
+
+section {
+  text-align: center;
+  min-height: 400px;
+}
+
+section h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+#banner {
+  min-height: 300px;
+  background-color: cyan;
+}
+
+.prices {
   display: flex;
 }
 
-header nav ul {
-  display: inline-block;
+.prices .card {
+  width: 33.333333%;
+  border: 1px solid #eee;
+  position: relative;
+}
+
+.prices .card .card-title {
+  padding: 4px 0;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: lightgoldenrodyellow;
+}
+
+.prices .card .sale {
+  position: absolute;
+  right: -10px;
+  top: -16px;
+  font-size: 32px;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+
+.prices .card .card-price {
+  font-size: 72px;
+  font-weight: bold;
+}
+
+.prices .card .card-price .symbol {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.prices .card.featured .card-title {
+  margin-top: -8px;
+  padding: 8px 0;
+  background-color: lightcoral;
+}
+
+footer {
+  margin: 50px 0 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer span {
+  margin: 0 5px;
+  color: #cb343e;
+  background: var(--color-bg);
+  text-shadow: 0 0 5px #cb343e, 0 0 10px #cb343e, 0 0 15px #cb343e,
+    0 0 20px #e59a9f, 0 0 30px #e59a9f, 0 0 40px #e59a9f, 0 0 55px #e59a9f,
+    0 0 75px #e59a9f;
 }
