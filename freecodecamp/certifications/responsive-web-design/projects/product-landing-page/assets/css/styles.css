@@ -16,7 +16,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 60px 0 0;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: 'Open Sans', sans-serif;
@@ -26,6 +26,7 @@ header {
   width: 100%;
   display: flex;
   position: fixed;
+  top: 0;
   height: 60px;
   justify-content: space-between;
   align-items: center;
@@ -70,8 +71,9 @@ ul {
 }
 
 section {
-  text-align: center;
+  padding: 40px 0;
   min-height: 400px;
+  text-align: center;
 }
 
 section h1 {
@@ -82,6 +84,27 @@ section h1 {
 #banner {
   min-height: 300px;
   background-color: cyan;
+}
+
+#features .items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#features .items .item {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+#features .items .item .icon {
+  width: 120px;
+  font-size: 44px;
+}
+
+#features .items .item .content strong {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 22px;
 }
 
 .prices {
