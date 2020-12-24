@@ -1,0 +1,46 @@
+:root {
+  --color-bg: #eeeeee;
+  --color-text: #333333;
+  --color-white: #ffffff;
+  --color-primary: #cccccc;
+  --color-secondary: #111111;
+  --color-heart: #cb343e;
+  --color-heart-light: #e59a9f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  margin: auto;
+}
+
+.container #navbar {
+  width: 50%;
+}
+
+footer {
+  margin: 50px 0 25px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer span {
+  margin: 0 5px;
+  color: var(--color-heart);
+  background: var(--color-bg);
+  text-shadow: 0 0 5px var(--color-heart), 0 0 10px var(--color-heart),
+    0 0 15px var(--color-heart), 0 0 20px var(--color-heart-light),
+    0 0 30px var(--color-heart-light), 0 0 40px var(--color-heart-light),
+    0 0 55px var(--color-heart-light), 0 0 75px var(--color-heart-light);
+}
