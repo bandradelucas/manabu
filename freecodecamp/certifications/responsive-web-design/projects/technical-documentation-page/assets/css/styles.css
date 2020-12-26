@@ -53,6 +53,7 @@ pre {
 
 pre code {
   display: block;
+  overflow-x: hidden;
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   line-height: 22px;
@@ -70,6 +71,11 @@ pre code::after {
   display: block;
 }
 
+pre.bash, pre.bash code {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
 pre.php code::before {
   content: '<?php';
   color: var(--color-red);
@@ -82,7 +88,7 @@ pre.php code::after {
 
 .container {
   display: flex;
-  width: 900px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -144,4 +150,19 @@ footer span {
     0 0 15px var(--color-heart), 0 0 20px var(--color-heart-light),
     0 0 30px var(--color-heart-light), 0 0 40px var(--color-heart-light),
     0 0 55px var(--color-heart-light), 0 0 75px var(--color-heart-light);
+}
+
+@media (max-width: 799px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container #navbar, .container #main-doc {
+    width: 100%
+  }
+
+  .container #navbar {
+    height: 200px;
+    overflow-y: scroll;
+  }
 }
