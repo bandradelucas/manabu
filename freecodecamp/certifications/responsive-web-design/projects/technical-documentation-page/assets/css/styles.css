@@ -3,7 +3,7 @@
   --color-text: #333333;
   --color-white: #ffffff;
   --color-primary: #f58080;
-  --color-secondary: #333333;
+  --color-secondary: #111111;
   --color-red: red;
   --color-heart: #cb343e;
   --color-heart-light: #e59a9f;
@@ -26,7 +26,11 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 ul {
@@ -91,8 +95,17 @@ pre.php code::after {
 }
 
 #navbar ul li {
-  font-size: 14px;
   padding: 12px 0;
+}
+
+#navbar ul li a {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--color-secondary);
+}
+
+#navbar ul li a:hover {
+  text-decoration: none;
 }
 
 #main-doc .main-section header {
