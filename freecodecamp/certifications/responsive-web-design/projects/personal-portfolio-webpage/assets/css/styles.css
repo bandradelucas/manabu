@@ -65,6 +65,10 @@ nav a:hover {
   border: 1px dashed #ffffff;
 }
 
+section {
+  margin-bottom: 60px;
+}
+
 footer {
   margin-top: 40px;
   text-align: center;
@@ -80,7 +84,19 @@ footer a {
   max-width: 800px;
 }
 
-img {
+#projects .projects-grid {
+  display: flex;
+}
+
+#projects .projects-grid .project-tile {
+  background-image: url(https://via.placeholder.com/150);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 33.333333%;
+  height: 220px;
+}
+
+#welcome-section img {
   width: 100%;
   margin-bottom: 30px;
 }
