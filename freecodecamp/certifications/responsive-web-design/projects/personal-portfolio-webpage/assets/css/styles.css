@@ -30,6 +30,7 @@ h1 {
 
 a {
   text-decoration: none;
+  color: var(--crimson-red);
 }
 
 a:hover {
@@ -86,14 +87,27 @@ footer a {
 
 #projects .projects-grid {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 #projects .projects-grid .project-tile {
+  width: calc(33.333333% - 8px);
+}
+
+#projects .projects-grid .project-tile .thumbnail {
+  margin-bottom: 10px;
+  border: 4px ridge var(--crimson-red);
+  height: 200px;
   background-image: url(https://via.placeholder.com/150);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 33.333333%;
-  height: 220px;
+  background-position: center;
+}
+
+#projects .projects-grid .project-tile .title {
+  font-weight: bold;
+  text-align: center;
 }
 
 #welcome-section img {
