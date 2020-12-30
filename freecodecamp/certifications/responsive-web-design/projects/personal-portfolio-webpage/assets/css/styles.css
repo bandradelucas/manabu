@@ -1,9 +1,10 @@
 :root {
-  --baby-pink: #efc2c7ff;
-  --crimson-red: #a4323cff;
-  --vermillion: #d04b4cff;
-  --zomp: #439d87ff;
-  --almond: #f4e6d9ff;
+  --baby-pink: #efc2c7;
+  --crimson-red: #a4323c;
+  --crimson-red-lighter: #c9505a;
+  --vermillion: #d04b4c;
+  --zomp: #439d87;
+  --almond: #f4e6d9;
 }
 
 * {
@@ -18,14 +19,13 @@
 }
 
 body {
-  margin-top: 60px;
   background-color: var(--baby-pink);
   font-family: 'Major Mono Display', monospace;
 }
 
 h1 {
   font-size: 28px;
-  margin-bottom: 1em;
+  margin-bottom: 40px;
 }
 
 a {
@@ -35,6 +35,15 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+ul {
+  list-style: decimal-leading-zero;
+  list-style-position: inside;
+}
+
+ul li {
+  margin-bottom: 20px;
 }
 
 #navbar {
@@ -71,7 +80,7 @@ section {
 }
 
 footer {
-  margin-top: 40px;
+  margin: 40px 0;
   text-align: center;
 }
 
@@ -81,8 +90,20 @@ footer a {
 
 .container {
   margin: auto;
-  padding: 20px 10px;
   max-width: 800px;
+}
+
+#welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#welcome-section img {
+  width: 500px;
+  margin-top: 20px;
 }
 
 #projects .projects-grid {
@@ -110,19 +131,47 @@ footer a {
   text-align: center;
 }
 
-#welcome-section img {
-  width: 100%;
-  margin-bottom: 30px;
+#projects .show-all {
+  margin-top: 60px;
+  text-align: center;
 }
 
-ul {
-  list-style: decimal-leading-zero;
+#projects .show-all a {
+  padding: 10px 18px;
+  background-color: var(--crimson-red);
+  color: var(--almond);
 }
 
-ul li {
-  margin-bottom: 10px;
+#projects .show-all a::after {
+  content: ' \003e';
+  font-weight: bold;
+}
+
+#contact {
+  min-height: 200px;
+}
+
+#projects .show-all a:hover {
+  text-decoration: none;
+  background-color: var(--crimson-red-lighter);
 }
 
 .heart {
   color: var(--vermillion);
+}
+
+@media (max-width: 799px) {
+  #welcome-section img {
+    width: 100%;
+  }
+
+  #projects .projects-grid .project-tile {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  #projects .projects-grid .project-tile .thumbnail {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
