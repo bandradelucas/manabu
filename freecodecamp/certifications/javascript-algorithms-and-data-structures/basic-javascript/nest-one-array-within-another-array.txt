@@ -1,0 +1,6 @@
+// Only change code below this line
+var myArray = [
+    ["Naruto", "genin"],
+    ["Shikamaru", "chunin"],
+    ["Kakashi", "jounin"]
+];

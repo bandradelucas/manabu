@@ -1,0 +1,5 @@
+// Only change code below this line
+var myArray = [
+    'Zero Two',
+    2
+];
