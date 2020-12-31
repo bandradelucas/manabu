@@ -1,0 +1,5 @@
+// Setup
+var a;
+
+// Only change code below this liner
+a = 7;
