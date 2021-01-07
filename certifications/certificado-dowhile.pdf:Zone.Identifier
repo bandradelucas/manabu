@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://dowhile.rocketseat.com.br/certificado
+HostUrl=https://dowhile.rocketseat.com.br/api/certificates/generate?email=bandradelucas@gmail.com&name=undefined
