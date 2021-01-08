@@ -1,0 +1,7 @@
+let yourArray = [
+    "one two three",
+    123,
+    true,
+    "yay",
+    1337
+]; // Change this line
