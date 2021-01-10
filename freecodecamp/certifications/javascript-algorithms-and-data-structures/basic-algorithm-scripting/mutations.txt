@@ -1,0 +1,15 @@
+function mutation(arr) {
+  arr = arr.map(value => value.toLowerCase());
+
+  return arr[1].split("").every(value => {
+    for (let i = 0; i < arr[0].length; i++) {
+      if (value === arr[0][i]) {
+        return true;
+      }
+    }
+
+    return false;
+  });
+}
+
+mutation(["hello", "hey"]);
