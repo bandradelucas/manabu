@@ -1,0 +1,16 @@
+function findElement(arr, func) {
+  let num = 0;
+  if (arr.some(item => {
+    if (func(item)) {
+      num = item;
+      
+      return true;
+    }
+  })) {
+    return num;
+  }
+
+  return undefined;
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
