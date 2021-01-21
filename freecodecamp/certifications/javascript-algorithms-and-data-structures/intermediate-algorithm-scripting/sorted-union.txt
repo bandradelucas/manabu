@@ -1,0 +1,13 @@
+function uniteUnique(...parameters) {
+  let resultArr = [];
+  
+  parameters.map(arr => arr.map(value => {
+    if (!resultArr.includes(value)) {
+      resultArr.push(value);
+    }
+  }));
+
+  return resultArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
