@@ -1,0 +1,15 @@
+function steamrollArray(arr) {
+  const flat = [];
+
+  arr.map(value => {
+    if (Array.isArray(value)) {
+      flat.push(...steamrollArray(value))
+    } else {
+      flat.push(value);
+    }
+  })
+
+  return flat;
+}
+
+steamrollArray([1, [2], [3, [[4]]]]);
