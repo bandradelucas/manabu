@@ -1,0 +1,15 @@
+function convertHTML(str) {
+  let convertions = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&apos;"
+  }
+
+  Object.keys(convertions).map((item, index) => str = str.replaceAll(item, convertions[item]))
+  
+  return str;
+}
+
+convertHTML("Dolce & Gabbana");

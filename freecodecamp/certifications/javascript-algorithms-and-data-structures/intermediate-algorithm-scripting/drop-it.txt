@@ -1,0 +1,15 @@
+function dropElements(arr, func) {
+  let arrCopy = arr.slice();
+
+  arr.some(value => {
+    if (func(value)) {
+      return true;
+    } else {
+      arrCopy.shift();
+    }
+  });
+
+  return arrCopy;
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });

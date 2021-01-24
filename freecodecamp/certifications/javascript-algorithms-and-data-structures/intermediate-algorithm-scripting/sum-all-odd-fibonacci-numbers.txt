@@ -1,0 +1,15 @@
+function sumFibs(num) {
+  let fibonacci = [1, 1];
+  let fibonacciCurrent = 1;
+
+  while (fibonacciCurrent <= num) {
+    fibonacciCurrent = fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2];
+    if (fibonacciCurrent <= num) {
+      fibonacci.push(fibonacciCurrent);
+    }
+  }
+
+  return fibonacci.filter(value => value % 2 !== 0).reduce((accumulator, current) => accumulator + current);
+}
+
+sumFibs(4);
