@@ -1,0 +1,10 @@
+function palindrome(str) {
+  let quoteArr = str.toLowerCase().match(/[a-zA-Z0-9]/g);
+  let quoteArrReverse = quoteArr.slice().reverse();
+
+  return quoteArrReverse.every((character, index) => quoteArr[index] === character);
+}
+
+
+
+palindrome("eyex");
