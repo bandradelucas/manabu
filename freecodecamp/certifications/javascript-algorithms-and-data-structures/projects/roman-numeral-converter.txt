@@ -1,0 +1,59 @@
+function convertToRoman(num) {
+    let romanos = {
+        1000: "M",
+        500: "D",
+        100: "C", // estou aqui
+        50: "L",
+        10: "X", // quero chegar aqui
+        5: "V",
+        1: "I"
+    };
+
+    let divisores = [1000, 500, 100, 50, 10, 5, 1]
+
+    let resto = num;
+    let divisor;
+    let divisorIndex;
+    let divisorProximo;
+    let resultado = "";
+    let quociente;
+
+    console.log({ resto })
+
+    while (resto != 0) {
+        if (resto.toString()[0] === "4") {
+            divisorIndex = divisores.findIndex(value => parseInt(resto / value) > 0);
+            divisor = divisores[divisorIndex];
+            divisorProximo = divisores[divisorIndex - 1];
+            quociente = parseInt(resto / divisor);
+            resultado = `${resultado}${romanos[divisor]}${romanos[divisorProximo]}`;
+            console.log({ divisor, divisorProximo, x: resto, quociente, resultado });
+        } else if (resto.toString()[0] === "9") {
+            divisorIndex = divisores.findIndex(value => parseInt(resto / value) > 0) + 1;
+            divisor = divisores[divisorIndex];
+            divisorProximo = divisores[divisorIndex - 2];
+            quociente = parseInt(resto / divisor);
+            resultado = `${resultado}${romanos[divisor]}${romanos[divisorProximo]}`;
+
+            console.log({
+                divisorIndex,
+                divisor,
+                divisorProximo
+            })
+        } else {
+
+            divisor = divisores.find(value => parseInt(resto / value) > 0);
+
+            quociente = parseInt(resto / divisor); // 3333 / 1000 = 3
+            resultado = `${resultado}${romanos[divisor].repeat(quociente)}`;
+        }
+
+        resto = resto % (divisor * quociente);
+        console.log({ divisor, quociente, resto, resultado });
+    }
+
+    return resultado;
+}
+
+
+console.log(convertToRoman(99));
