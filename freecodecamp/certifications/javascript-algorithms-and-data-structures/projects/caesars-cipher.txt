@@ -1,0 +1,30 @@
+function rot13(str) {
+  let characters = str.slice().split("");
+  console.log({
+    characters,
+    at: characters[0].charCodeAt(0)
+  });
+
+  characters.map(char => {
+    let charCode = char.charCodeAt(0);
+
+    if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) {
+      let sum = charCode + 13;
+
+      if (sum > 122) {
+        return String.fromCharCode(122 - (122 - sum));
+      } else if (sum > 90) {
+        return String.fromCharCode(90 - (90 - sum));
+      } else {
+        return String.fromCharCode(charCode + 13);
+      }
+    } else {
+      return char;
+    }
+  })
+
+  return str;
+}
+
+console.log(rot13("SERR PBQR PNZC"));
+rot13("SERR PBQR PNZC");
