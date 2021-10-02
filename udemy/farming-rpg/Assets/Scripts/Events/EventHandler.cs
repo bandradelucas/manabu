@@ -4,7 +4,7 @@ public delegate void MovementDelegate(
     bool isWalking,
     bool isRunning,
     bool isIdle,
-    bool isCarrying,''
+    bool isCarrying,
     ToolEffect toolEffect,
     bool isUsingToolRight,
     bool isUsingToolLeft,
@@ -18,10 +18,14 @@ public delegate void MovementDelegate(
     bool isSwingingToolLeft,
     bool isSwingingToolUp,
     bool isSwingingToolDown,
-    bool isIdleRight,
-    bool isIdleLeft,
-    bool isIdleUp,
-    bool isIdleDown,
+    bool isPickingRight,
+    bool isPickingLeft,
+    bool isPickingoUp,
+    bool isPickingDown,
+    bool idleRight,
+    bool idleLeft,
+    bool idleUp,
+    bool idleDown
 );
 
 public static class EventHandler
@@ -30,13 +34,13 @@ public static class EventHandler
     public static event MovementDelegate MovementEvent;
 
     // Movement Event Call
-    public static void CallMovement(
-        float inputX,
-        float inputY,
+    public static void CallMovementEvent(
+        float xInput,
+        float yInput,
         bool isWalking,
         bool isRunning,
         bool isIdle,
-        bool isCarrying,''
+        bool isCarrying,
         ToolEffect toolEffect,
         bool isUsingToolRight,
         bool isUsingToolLeft,
@@ -50,15 +54,19 @@ public static class EventHandler
         bool isSwingingToolLeft,
         bool isSwingingToolUp,
         bool isSwingingToolDown,
-        bool isIdleRight,
-        bool isIdleLeft,
-        bool isIdleUp,
-        bool isIdleDown
+        bool isPickingRight,
+        bool isPickingLeft,
+        bool isPickingUp,
+        bool isPickingDown,
+        bool idleRight,
+        bool idleLeft,
+        bool idleUp,
+        bool idleDown
     ) {
         if (MovementEvent != null) {
             MovementEvent(
-                inputX,
-                inputY,
+                xInput,
+                yInput,
                 isWalking,
                 isRunning,
                 isIdle,
@@ -76,10 +84,14 @@ public static class EventHandler
                 isSwingingToolLeft,
                 isSwingingToolUp,
                 isSwingingToolDown,
-                isIdleRight,
-                isIdleLeft,
-                isIdleUp,
-                isIdleDown
+                isPickingRight,
+                isPickingLeft,
+                isPickingUp,
+                isPickingDown,
+                idleRight,
+                idleLeft,
+                idleUp,
+                idleDown
             );
         }
     }
