@@ -82,6 +82,19 @@ public class MovementAnimationParameterControl : MonoBehaviour
             animator.SetTrigger(Settings.isLiftingToolDown);
         }
 
+        if (isSwingingToolRight) {
+            animator.SetTrigger(Settings.isSwingingToolRight);
+        }
+        if (isSwingingToolLeft) {
+            animator.SetTrigger(Settings.isSwingingToolLeft);
+        }
+        if (isSwingingToolUp) {
+            animator.SetTrigger(Settings.isSwingingToolUp);
+        }
+        if (isSwingingToolDown) {
+            animator.SetTrigger(Settings.isSwingingToolDown);
+        }
+
         if (isPickingRight) {
             animator.SetTrigger(Settings.isPickingRight);
         }
