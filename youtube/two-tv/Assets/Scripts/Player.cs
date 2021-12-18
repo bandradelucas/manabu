@@ -5,41 +5,54 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Entity entity;
+  public Entity entity;
 
-    [Header("Player UI")]
+  [Header("Game Manager")]
+  public GameManager manager;
 
-    public Slider health;
-    public Slider mana;
-    public Slider stamina;
-    public Slider experience;
-     
-    // Start is called before the first frame update
-    void Start()
+  [Header("Player UI")]
+
+  public Slider health;
+  public Slider mana;
+  public Slider stamina;
+  public Slider experience;
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    if (manager == null)
     {
-        entity.currentHealth = entity.maxHealth;
-        entity.currentMana = entity.maxMana;
-        entity.currentStamina = entity.maxStamina;
-
-        health.maxValue = entity.maxHealth;
-        health.value = health.maxValue;
-
-        mana.maxValue = entity.maxMana;
-        mana.value = mana.maxValue;
-
-        stamina.maxValue = entity.maxStamina;
-        stamina.value = stamina.maxValue;
-
-        experience.value = 0;
+      Debug.LogError("Você precisa anexar o game manager aqui no player");
+      return;
     }
 
-    private void Update() {
-        health.value = entity.currentHealth;
-        mana.value = entity.currentMana;
-        stamina.value = entity.currentStamina;
+    entity.maxHealth = manager.CalculateHealth(this);
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            entity.currentHealth -= 1;
-        }
+    entity.currentHealth = entity.maxHealth;
+    entity.currentMana = entity.maxMana;
+    entity.currentStamina = entity.maxStamina;
+
+    health.maxValue = entity.maxHealth;
+    health.value = health.maxValue;
+
+    mana.maxValue = entity.maxMana;
+    mana.value = mana.maxValue;
+
+    stamina.maxValue = entity.maxStamina;
+    stamina.value = stamina.maxValue;
+
+    experience.value = 0;
+  }
+
+  private void Update()
+  {
+    health.value = entity.currentHealth;
+    mana.value = entity.currentMana;
+    stamina.value = entity.currentStamina;
+
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      entity.currentHealth -= 1;
     }
+  }
 }
