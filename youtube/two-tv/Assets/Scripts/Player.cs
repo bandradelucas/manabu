@@ -7,6 +7,14 @@ public class Player : MonoBehaviour
 {
   public Entity entity;
 
+  [Header("Player Regeneration System")]
+  public bool HPRegenerationEnabled = true;
+  public float HPRegenerationTime = 5f;
+  public int HPRegenerationValue = 5;
+  public bool MPRegenerationEnabled = true;
+  public float MPRegenerationTime = 10f;
+  public int MPRegenerationValue = 5;
+
   [Header("Game Manager")]
   public GameManager manager;
 
@@ -27,6 +35,11 @@ public class Player : MonoBehaviour
     }
 
     entity.maxHealth = manager.CalculateHealth(this);
+    entity.maxMana = manager.CalculateMana(this);
+    entity.maxStamina = manager.CalculateStamina(this);
+
+    int damage = manager.CalculateDamage(this, 10);
+    int defense = manager.CalculateDefense(this, 5);
 
     entity.currentHealth = entity.maxHealth;
     entity.currentMana = entity.maxMana;
@@ -42,6 +55,9 @@ public class Player : MonoBehaviour
     stamina.value = stamina.maxValue;
 
     experience.value = 0;
+
+    StartCoroutine(HPRegeneration());
+    StartCoroutine(MPRegeneration());
   }
 
   private void Update()
@@ -52,7 +68,47 @@ public class Player : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.Space))
     {
-      entity.currentHealth -= 1;
+      entity.currentHealth -= 10;
+      entity.currentMana -= 5;
+    }
+  }
+
+  IEnumerator HPRegeneration()
+  {
+    while(true)
+    {
+      if (HPRegenerationEnabled)
+      {
+        if (entity.currentHealth < entity.maxHealth)
+        {
+          Debug.LogFormat("Recuperando HP");
+          entity.currentHealth += HPRegenerationValue;
+          yield return new WaitForSeconds(HPRegenerationTime);
+        } else {
+          yield return null;
+        }
+      } else {
+        yield return null;
+      }
+    }
+  }
+  IEnumerator MPRegeneration()
+  {
+    while(true)
+    {
+      if (MPRegenerationEnabled)
+      {
+        if (entity.currentMana < entity.maxMana)
+        {
+          Debug.LogFormat("Recuperando MP");
+          entity.currentMana += MPRegenerationValue;
+          yield return new WaitForSeconds(MPRegenerationTime);
+        } else {
+          yield return null;
+        }
+      } else {
+        yield return null;
+      }
     }
   }
 }

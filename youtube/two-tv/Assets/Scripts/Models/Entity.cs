@@ -26,6 +26,7 @@ public class Entity
   public int strength = 1;
   public int resistance = 1;
   public int intelligence = 1;
+  public int willpower = 1;
   public int damage = 1;
   public int defense = 1;
   public float speed = 2f;
