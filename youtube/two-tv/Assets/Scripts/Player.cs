@@ -34,12 +34,9 @@ public class Player : MonoBehaviour
       return;
     }
 
-    entity.maxHealth = manager.CalculateHealth(this);
-    entity.maxMana = manager.CalculateMana(this);
-    entity.maxStamina = manager.CalculateStamina(this);
-
-    int damage = manager.CalculateDamage(this, 10);
-    int defense = manager.CalculateDefense(this, 5);
+    entity.maxHealth = manager.CalculateHealth(entity);
+    entity.maxMana = manager.CalculateMana(entity);
+    entity.maxStamina = manager.CalculateStamina(entity);
 
     entity.currentHealth = entity.maxHealth;
     entity.currentMana = entity.maxMana;
@@ -65,12 +62,6 @@ public class Player : MonoBehaviour
     health.value = entity.currentHealth;
     mana.value = entity.currentMana;
     stamina.value = entity.currentStamina;
-
-    if (Input.GetKeyDown(KeyCode.Space))
-    {
-      entity.currentHealth -= 10;
-      entity.currentMana -= 5;
-    }
   }
 
   IEnumerator HPRegeneration()
