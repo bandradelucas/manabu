@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -8,13 +9,14 @@ public class Enemy : MonoBehaviour
 {
   [Header("Controller")]
 
-  public Entity entity = new Entity();
+  public Entity entity;
   public GameManager manager;
 
   [Header("Patrol")]
-  public Transform[] waypointList;
+  public List<Transform> waypointList;
   public float arrivalDistance = 0.5f;
   public float waitTime = 5;
+  public int waypointID;
 
   private Transform targetWaypoint;
   private int currentWaypoint = 0;
@@ -30,6 +32,9 @@ public class Enemy : MonoBehaviour
   public GameObject prefab;
   public bool respawn = true;
   public float respawnTime = 10f;
+
+  [Header("UI")]
+  public Slider healthSlider;
 
   private Rigidbody2D rb2D;
   private Animator animator;
@@ -48,9 +53,19 @@ public class Enemy : MonoBehaviour
     entity.currentMana = entity.maxMana;
     entity.currentStamina = entity.maxStamina;
 
+    healthSlider.maxValue = entity.maxHealth;
+    healthSlider.value = healthSlider.maxValue;
+
+    foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Waypoint")) {
+      int ID = obj.GetComponent<WaypointID>().ID;
+      if (ID == waypointID) {
+        waypointList.Add(obj.transform);
+      }
+    }
+
     currentWaitTime = waitTime;
 
-    if (waypointList.Length > 0)
+    if (waypointList.Count > 0)
     {
       targetWaypoint = waypointList[currentWaypoint];
       lastDistanceToTarget = Vector2.Distance(transform.position, targetWaypoint.position);
@@ -68,8 +83,10 @@ public class Enemy : MonoBehaviour
       Die();
     }
 
+    healthSlider.value = entity.currentHealth;
+
     if (!entity.inCombat) {
-      if (waypointList.Length > 0) {
+      if (waypointList.Count > 0) {
         Patrol();
       } else {
         animator.SetBool("isWalking", false);
@@ -84,7 +101,7 @@ public class Enemy : MonoBehaviour
       }
 
       if (entity.target != null && entity.inCombat) {
-        if (entity.combatCoroutine) {
+        if (!entity.combatCoroutine) {
           StartCoroutine(Attack());
         }
       } else {
@@ -129,7 +146,7 @@ public class Enemy : MonoBehaviour
       if (currentWaitTime <= 0) {
         currentWaypoint++;
 
-        if (currentWaypoint >= waypointList.Length) {
+        if (currentWaypoint >= waypointList.Count) {
           currentWaypoint = 0;
         }
 
@@ -144,8 +161,8 @@ public class Enemy : MonoBehaviour
     }
 
     Vector2 direction = (targetWaypoint.position - transform.position).normalized;
-    animator.SetFloat("InputX", direction.x);
-    animator.SetFloat("InputY", direction.y);
+    animator.SetFloat("inputX", direction.x);
+    animator.SetFloat("inputY", direction.y);
 
     rb2D.MovePosition(rb2D.position + direction * (entity.speed * Time.fixedDeltaTime));
   }
@@ -157,7 +174,7 @@ public class Enemy : MonoBehaviour
     while (true) {
       yield return new WaitForSeconds(entity.cooldown);
 
-      if (entity.target != null && entity.target.GetComponent<Player>().entity.dead) {
+      if (entity.target != null && !entity.target.GetComponent<Player>().entity.dead) {
         animator.SetBool("attack", true);
 
         float distance = Vector2.Distance(entity.target.transform.position, transform.position);
@@ -188,8 +205,9 @@ public class Enemy : MonoBehaviour
 
     animator.SetBool("isWalking", false);
 
-    // add xp
-    // manager.GainExp(rewardExperience);
+    Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    player.GainExperience(rewardExperience);
+
     Debug.Log("O inimigo morreu: " + entity.name);
 
     StopAllCoroutines();
@@ -203,6 +221,7 @@ public class Enemy : MonoBehaviour
     GameObject newEnemy = Instantiate(prefab, transform.position, transform.rotation, null);
     newEnemy.name = prefab.name;
     newEnemy.GetComponent<Enemy>().entity.dead = false;
+    newEnemy.GetComponent<Enemy>().entity.combatCoroutine = false;
 
     Destroy(this.gameObject);
   }
