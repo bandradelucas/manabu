@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Waypoint
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1066585385
+    locked: 0
+  - name: Pet
+    uniqueID: 3728558567
+    locked: 0
+  - name: Player
+    uniqueID: 1668846599
     locked: 0
