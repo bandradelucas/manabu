@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheck;
     private bool isGrounded;
+    private bool isAttack;
+
+    public Transform hand;
+    public GameObject hitBoxPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,10 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
 
+        if (isAttack == true && isGrounded == true) {
+            h = 0;
+        }
+
         if (h > 0 && isLookLeft == true) {
             Flip();
         } else if (h < 0 && isLookLeft == false) {
@@ -40,7 +48,8 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(new Vector2(0, jumpForce));
         }
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && isAttack == false) {
+            isAttack = true;
             playerAnimator.SetTrigger("attack");
         }
 
@@ -49,6 +58,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetInteger("h", (int) h);
         playerAnimator.SetBool("isGrounded", isGrounded);
         playerAnimator.SetFloat("speedY", speedY);
+        playerAnimator.SetBool("isAttack", isAttack);
     }
 
     void FixedUpdate() {
@@ -60,5 +70,16 @@ public class PlayerController : MonoBehaviour
         isLookLeft = !isLookLeft;
         float x = transform.localScale.x * -1;
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+    }
+
+    void OnEndAttack()
+    {
+        isAttack = false;
+    }
+    
+    void HitBoxAttack()
+    {
+        GameObject hitBoxTemp = Instantiate(hitBoxPrefab, hand.position, transform.localRotation);
+        Destroy(hitBoxTemp, 0.2f);
     }
 }
