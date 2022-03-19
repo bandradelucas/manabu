@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameController _GameController;
+
     private Rigidbody2D playerRb;
     private Animator playerAnimator;
 
@@ -23,6 +25,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _GameController = FindObjectOfType(typeof(GameController)) as GameController;
+        _GameController.playerTransform = this.transform;
+        
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
     }
