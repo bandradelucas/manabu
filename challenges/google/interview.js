@@ -89,6 +89,7 @@ const test = new SomeClass();
 test.add([1, 10]);
 test.add([15, 20]);
 test.add([8, 16]);
+test.add([15, 25]);
 console.log({
   'ranges': test.ranges
 });
