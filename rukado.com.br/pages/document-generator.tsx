@@ -1,25 +1,28 @@
 import type { NextPage } from 'next'
-import { FormEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { Button } from '../components/Button/Button'
 import { TextField } from '../components/Form/TextField/TextField'
+import { CPFGenerator } from '../utils/CPFGenerator'
 
 const DocumentGenerator: NextPage = () => {
   const [document, setDocument] = useState('');
 
-  // function documentChange(event: FormEvent) {
-  //   setDocument('123.123.123-12');
-  // }
-
   function handleGenerate() {
-    console.log('yay');
+    setDocument(CPFGenerator('sp'));
   }
 
   return (
     <>
       <h1>Document Generator</h1>
-      <TextField value={document} onChange={(event: FormEvent) => setDocument(event.target.value)} placeholder="hehehe" />
-      {document}
+      <TextField
+        value={document}
+        placeholder="hehehe"
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setDocument(event.target.value)}
+      />
       <Button onClick={handleGenerate}>Generate!</Button>
+      <div>
+        {document}
+      </div>
     </>
   )
 }
