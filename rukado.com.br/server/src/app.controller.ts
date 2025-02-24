@@ -7,6 +7,8 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    console.log(process.env.DATABASE_URL);
+    console.log(process.env.XISDE);
     return this.appService.getHello();
   }
 }
