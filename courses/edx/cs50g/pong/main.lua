@@ -1,5 +1,5 @@
-push = require 'push'
-Class = require 'class'
+push = require 'packages/push'
+Class = require 'packages/class'
 require 'Paddle'
 require 'Ball'
 
@@ -17,15 +17,21 @@ function love.load()
 
     math.randomseed(os.time())
 
-    smallFont = love.graphics.newFont('font.ttf', 8)
-    largeFont = love.graphics.newFont('font.ttf', 16)
-    scoreFont = love.graphics.newFont('font.ttf', 32)
+    smallFont = love.graphics.newFont('assets/fonts/font.ttf', 8)
+    largeFont = love.graphics.newFont('assets/fonts/font.ttf', 16)
+    scoreFont = love.graphics.newFont('assets/fonts/font.ttf', 32)
 
     love.graphics.setFont(smallFont)
 
+    sounds = {
+        ['paddle_hit'] = love.audio.newSource('assets/sounds/paddle_hit.wav', 'static'),
+        ['score'] = love.audio.newSource('assets/sounds/score.wav', 'static'),
+        ['wall_hit'] = love.audio.newSource('assets/sounds/wall_hit.wav', 'static')
+    }
+
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
-        resizable = false,
+        resizable = true,
         vsync = true
     })
 
@@ -40,6 +46,10 @@ function love.load()
     ball = Ball(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
 
     gameState = 'start'
+end
+
+function love.resize(width, height)
+    push:resize(width, height)
 end
 
 function love.update(dt)
@@ -60,6 +70,8 @@ function love.update(dt)
             else
                 ball.dy = math.random(10, 150)
             end
+
+            sounds.paddle_hit:play()
         end
 
         if ball:collides(player2) then
@@ -71,21 +83,26 @@ function love.update(dt)
             else
                 ball.dy = math.random(10, 150)
             end
+
+            sounds.paddle_hit:play()
         end
 
         if ball.y <= 0 then
             ball.y = 0
             ball.dy = -ball.dy
+            sounds.wall_hit:play()
         end
 
         if ball.y >= VIRTUAL_HEIGHT - 4 then
             ball.y = VIRTUAL_HEIGHT - 4
             ball.dy = -ball.dy
+            sounds.wall_hit:play()
         end
 
         if ball.x < 0 then
             servingPlayer = 1
             player2Score = player2Score + 1
+            sounds.score:play()
     
             if player2Score == 3 then
                 winningPlayer = 2
@@ -99,6 +116,7 @@ function love.update(dt)
         if ball.x > VIRTUAL_WIDTH then
             servingPlayer = 2
             player1Score = player1Score + 1
+            sounds.score:play()
     
             if player1Score == 3 then
                 winningPlayer = 1
