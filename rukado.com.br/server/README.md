@@ -1,73 +1,42 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ pnpm install
-```
-
-## Running the app
-
-```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+src/
+├── modules/                        # Módulos principais da aplicação
+│   ├── auth/                       # Módulo de autenticação
+│   │   ├── dtos/                   # DTOs de autenticação (login, registro, etc)
+│   │   ├── controllers/             # Controladores de autenticação
+│   │   ├── providers/               # Lógica de autenticação (services)
+│   │   ├── strategies/              # Estratégias de autenticação (ex.: Google, Local)
+│   │   ├── auth.module.ts           # Módulo de autenticação
+│   │   └── auth.service.ts          # Serviço de autenticação
+│   ├── users/                       # Módulo de usuários
+│   │   ├── dtos/                   # DTOs de usuários
+│   │   ├── controllers/             # Controladores de usuários
+│   │   ├── providers/               # Lógica de usuários (services)
+│   │   ├── models/                  # Modelos do usuário (prisma, drizzle, etc)
+│   │   ├── users.module.ts          # Módulo de usuários
+│   │   └── users.service.ts         # Serviço de usuários
+│   ├── posts/                       # Módulo de posts (exemplo de outra funcionalidade)
+│   └── ...                          # Outros módulos, como produtos, pedidos, etc.
+├── config/                          # Arquivos de configuração
+│   ├── app.config.ts                # Configuração geral da aplicação
+│   ├── database.config.ts           # Configuração de banco de dados
+│   └── ...                          # Outras configurações (API keys, etc.)
+├── database/                        # Arquivos relacionados ao banco de dados
+│   ├── migrations/                  # Migrations do banco
+│   │   ├── 20230224000000-create-users-table.ts # Exemplo de migration
+│   ├── models/                      # Modelos de banco de dados (entidades)
+│   │   ├── user.model.ts            # Exemplo de modelo de usuário (drizzle, prisma, etc.)
+│   │   └── ...                      # Outros modelos
+│   ├── database.module.ts           # Módulo que gerencia a conexão com o banco
+│   └── database.service.ts          # Serviço para interagir com o banco
+├── common/                          # Reutilizáveis, utilitários e helpers
+│   ├── filters/                     # Filtros de exceções personalizadas (e.g., NotFound, BadRequest)
+│   ├── interceptors/                # Interceptores (logging, transformação de dados, etc)
+│   ├── pipes/                       # Validação e transformação de dados
+│   ├── decorators/                  # Decoradores personalizados (e.g., @Public, @Roles)
+│   └── constants.ts                 # Constantes globais
+├── shared/                          # Funcionalidades compartilhadas
+│   ├── logger/                      # Serviço de logger
+│   ├── email/                       # Serviço de envio de e-mail (com integração de provedor como o Postal)
+│   └── ...                          # Outros serviços compartilhados
+├── main.ts                          # Ponto de entrada da aplicação
+└── app.module.ts                    # Módulo raiz, que importa todos os módulos necessários
