@@ -17,6 +17,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+// import { MantineLogo } from '@mantinex/mantine-logo';
 import {
   IconBook,
   IconChartPie3,
@@ -61,7 +62,7 @@ const mockdata = [
   },
 ];
 
-export default function Home() {
+export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -88,7 +89,7 @@ export default function Home() {
     <Box pb={120}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <MantineLogo size={30} />
+          {/* <MantineLogo size={30} /> */}
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
