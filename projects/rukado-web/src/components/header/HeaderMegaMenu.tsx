@@ -30,6 +30,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './HeaderMegaMenu.module.css';
+import RukadoLogo from '../common/logo/RukadoLogo';
 
 const mockdata = [
   {
@@ -92,7 +93,7 @@ export function HeaderMegaMenu() {
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           {/* <MantineLogo size={30} /> */}
-          <div>Rukado</div>
+          <RukadoLogo size={45} />
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#" className={classes.link}>
