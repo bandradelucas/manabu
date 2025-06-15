@@ -5,7 +5,7 @@ import { Container } from "@mantine/core";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
-  const t = useTranslations("HomePage");
+  const t = useTranslations("homepage");
 
   return (
     <>

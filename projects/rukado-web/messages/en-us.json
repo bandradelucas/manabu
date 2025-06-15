@@ -1,0 +1,13 @@
+{
+  "homepage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "LocaleSwitcher": {
+    "label": "xisde",
+    "locale": {
+      "en-us": "English (US)",
+      "pt-br": "Português (Brasil)"
+    }
+  }
+}

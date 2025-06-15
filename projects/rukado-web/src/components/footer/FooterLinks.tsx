@@ -5,8 +5,16 @@ import {
   IconBrandTwitter,
   IconBrandYoutube,
 } from "@tabler/icons-react";
-import { ActionIcon, Container, Group, Text } from "@mantine/core";
+import {
+  ActionIcon,
+  Container,
+  Divider,
+  Flex,
+  Group,
+  Text,
+} from "@mantine/core";
 import classes from "./FooterLinks.module.css";
+import LocaleSwitcher from "../utils/LocaleSwitcher";
 
 const data = [
   {
@@ -62,9 +70,14 @@ export function FooterLinks() {
 
   return (
     <footer className={classes.footer}>
+      <Container>
+        <Flex justify="flex-end">
+          <LocaleSwitcher />
+        </Flex>
+        <Divider my="md" />
+      </Container>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          {/* <MantineLogo size={30} /> */}
           <div>Rukado</div>
           <Text size="xs" c="dimmed" className={classes.description}>
             Build fully functional accessible web applications faster than ever
