@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gfazioli/mantine-marquee": "^2.4.0",
     "@mantine/core": "^8.0.2",
     "@mantine/hooks": "^8.0.2",
     "@tabler/icons-react": "^3.34.0",

@@ -8,10 +8,9 @@ import RukadoLogo from "../common/logo/RukadoLogo";
 import { ColorSchemeControl } from "../utils/ColorSchemeControl";
 
 const links = [
-  { link: "/about", label: "Features" },
-  { link: "/pricing", label: "Pricing" },
-  { link: "/learn", label: "Learn" },
-  { link: "/community", label: "Community" },
+  { link: "/tools", label: "Tools" },
+  { link: "/projects", label: "Projects" },
+  { link: "/blog", label: "Blog" },
 ];
 
 export function HeaderSimple() {

@@ -11,6 +11,7 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import { HotKeysHandler } from "@/components/utils/HotKeysHandler";
 
 const pressStart2P = Press_Start_2P({
   variable: "--font-press-start-2p",
@@ -56,6 +57,7 @@ export default async function LocaleLayout({
       <body className={`${pressStart2P.variable} ${vt323.variable}`}>
         <NextIntlClientProvider>
           <MantineProvider defaultColorScheme="auto" theme={theme}>
+            <HotKeysHandler />
             {children}
           </MantineProvider>
         </NextIntlClientProvider>

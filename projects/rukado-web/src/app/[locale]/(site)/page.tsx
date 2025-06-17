@@ -1,7 +1,11 @@
+import { BlogCard } from "@/components/blog/BlogCard";
+import { BlogGrid } from "@/components/blog/BlogGrid";
 import { Hero1 } from "@/components/common/hero/Hero1";
+import { TechnologiesMarquee } from "@/components/common/hero/TechnologiesMarquee";
+import { ToolsShowcase } from "@/components/common/tools/ToolsShowcase";
 import { FooterLinks } from "@/components/footer/FooterLinks";
 import { HeaderSimple } from "@/components/header/HeaderSimple";
-import { Container } from "@mantine/core";
+import { Container, Stack } from "@mantine/core";
 import { useTranslations } from "next-intl";
 
 export default function Home() {
@@ -10,43 +14,12 @@ export default function Home() {
   return (
     <>
       <HeaderSimple />
-      <Container>
-        <p>{t("about")}</p>
+      <Stack gap="xl">
         <Hero1 />
-        <h1>Título Teste para Demonstração</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro veniam
-          blanditiis hic omnis quibusdam! Pariatur qui, odio officiis, at fuga
-          sed beatae quas tenetur culpa eius commodi nam facere et? Lorem ipsum
-          dolor sit amet consectetur, adipisicing elit. Porro veniam blanditiis
-          hic omnis quibusdam! Pariatur qui, odio officiis, at fuga sed beatae
-          quas tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit
-          amet consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Porro veniam blanditiis hic omnis
-          quibusdam! Pariatur qui, odio officiis, at fuga sed beatae quas
-          tenetur culpa eius commodi nam facere et?
-        </p>
-      </Container>
+        {/* <ToolsShowcase /> */}
+        <TechnologiesMarquee />
+        <BlogGrid />
+      </Stack>
       <FooterLinks />
     </>
   );
