@@ -37,12 +37,35 @@ export async function getPostBySlugAndLocale(slug: string) {
   const post = postsResponse.results[0] as any;
   if (!post) return null;
 
-  const postBlockResponse: any = await notion.blocks.children.list({
-    block_id: post.id,
-  });
+  const postBlocks = await fetchBlocksRecursively(post.id);
+  console.log(JSON.stringify(postBlocks));
 
   return {
     post,
-    postBlocks: postBlockResponse.results,
+    postBlocks: postBlocks,
   };
+}
+
+async function fetchBlocksRecursively(blockId: string): Promise<any[]> {
+  const blocks: any[] = [];
+  let cursor: string | undefined = undefined;
+
+  do {
+    const response = await notion.blocks.children.list({
+      block_id: blockId,
+      start_cursor: cursor,
+      page_size: 100,
+    });
+
+    for (const block of response.results) {
+      if (block.has_children) {
+        block.children = await fetchBlocksRecursively(block.id);
+      }
+      blocks.push(block);
+    }
+
+    cursor = response.next_cursor;
+  } while (cursor);
+
+  return blocks;
 }

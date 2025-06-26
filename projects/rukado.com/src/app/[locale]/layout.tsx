@@ -1,8 +1,8 @@
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Press_Start_2P, VT323 } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
 import {
   ColorSchemeScript,
   createTheme,
@@ -12,10 +12,10 @@ import {
 } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
 import { HotKeysHandler } from "@/components/utils/HotKeysHandler";
+import { CodeHighlightProvider } from "@/providers/CodeHighlightProvider";
 
 import "@mantine/core/styles.css";
 import "@mantine/nprogress/styles.css";
-import { CodeHighlightProvider } from "@/providers/CodeHighlightProvider";
 
 const pressStart2P = Press_Start_2P({
   variable: "--font-press-start-2p",

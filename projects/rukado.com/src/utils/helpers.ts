@@ -21,3 +21,11 @@ export const splitIntoChunks = <T>(array: T[], chunkCount: number): T[][] => {
     array.slice(i * chunkSize, (i + 1) * chunkSize)
   );
 };
+
+export const generateSlug = (text: string): string => {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w\-]/g, "")
+    .trim();
+};
