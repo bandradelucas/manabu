@@ -1,5 +1,6 @@
-import { Client } from "@notionhq/client";
 import { getLocale } from "next-intl/server";
+
+import { Client } from "@notionhq/client";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,

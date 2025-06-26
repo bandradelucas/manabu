@@ -1,9 +1,9 @@
-import { Menu, Button, Text } from "@mantine/core";
+import { Button, Menu, Text } from "@mantine/core";
 import {
-  IconPhoto,
-  IconMessageCircle,
   IconArrowsLeftRight,
   IconGift,
+  IconMessageCircle,
+  IconPhoto,
 } from "@tabler/icons-react";
 
 export function DonateMenu() {

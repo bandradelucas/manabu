@@ -1,8 +1,10 @@
 "use client";
 
 import { Table } from "@mantine/core";
+
+import { type NotionBlock, type NotionText } from "@/types/notion";
+
 import { NotionRenderText } from "./NotionRenderText";
-import { NotionBlock, NotionText } from "@/types/notion";
 
 type NotionBlockTableProps = {
   block: NotionBlock;

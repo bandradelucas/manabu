@@ -1,9 +1,11 @@
-import { Locale, useLocale, useTranslations } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { Select } from "@mantine/core";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTransition } from "react";
+import { Locale, useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+
+import { Select } from "@mantine/core";
+
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 
 export default function LocaleSwitcher() {
   const t = useTranslations("LocaleSwitcher");
@@ -19,7 +21,7 @@ export default function LocaleSwitcher() {
   const params = useParams();
 
   const switchLocale = (value: string | null) => {
-    const locale = value as Locale;
+    const locale = value!;
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`
       // are used in combination with a given `pathname`. Since the two will

@@ -1,5 +1,6 @@
-import { Flex } from "@mantine/core";
 import Image from "next/image";
+
+import { Flex } from "@mantine/core";
 
 export default function RukadoLogo({ size = 128 }: { size?: number }) {
   return (

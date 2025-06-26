@@ -1,6 +1,5 @@
 "use client";
 
-import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
 import {
   ActionIcon,
   Avatar,
@@ -10,6 +9,8 @@ import {
   Image,
   Text,
 } from "@mantine/core";
+import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
+
 import classes from "./BlogCard.module.css";
 
 export function BlogCard() {

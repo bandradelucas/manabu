@@ -1,17 +1,6 @@
 "use client";
 
 import {
-  IconBuildingBank,
-  IconCashBanknote,
-  IconCoin,
-  IconCreditCard,
-  IconReceipt,
-  IconReceiptRefund,
-  IconReceiptTax,
-  IconRepeat,
-  IconReport,
-} from "@tabler/icons-react";
-import {
   Anchor,
   Card,
   Center,
@@ -26,6 +15,18 @@ import {
   UnstyledButton,
   useMantineTheme,
 } from "@mantine/core";
+import {
+  IconBuildingBank,
+  IconCashBanknote,
+  IconCoin,
+  IconCreditCard,
+  IconReceipt,
+  IconReceiptRefund,
+  IconReceiptTax,
+  IconRepeat,
+  IconReport,
+} from "@tabler/icons-react";
+
 import classes from "./ToolsShowcase.module.css";
 
 const mockdata = [

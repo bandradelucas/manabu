@@ -1,8 +1,11 @@
 "use client";
 
 import { Box, Checkbox, Stack } from "@mantine/core";
-import { NotionBlock } from "@/types/notion";
+
+import { type NotionBlock } from "@/types/notion";
+
 import { NotionBlockRenderer } from "../NotionBlockRenderer";
+
 import { NotionRenderText } from "./NotionRenderText";
 
 interface NotionBlockTodoProps {

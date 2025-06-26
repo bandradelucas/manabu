@@ -1,18 +1,18 @@
 "use client";
 
-import { Marquee } from "@gfazioli/mantine-marquee";
-import { Box, Stack, Tooltip } from "@mantine/core";
 import {
-  ForwardRefExoticComponent,
-  ReactNode,
-  RefAttributes,
+  type ForwardRefExoticComponent,
+  type ReactNode,
+  type RefAttributes,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import "@gfazioli/mantine-marquee/styles.css";
+
+import { Marquee } from "@gfazioli/mantine-marquee";
+import { Box, Stack, Tooltip } from "@mantine/core";
 import {
-  Icon,
+  type Icon,
   IconBrandAdonisJs,
   IconBrandAmd,
   IconBrandAndroid,
@@ -54,9 +54,12 @@ import {
   IconBrandVercel,
   IconBrandVscode,
   IconBrandYoutube,
-  IconProps,
+  type IconProps,
 } from "@tabler/icons-react";
+
 import { shuffleArray, splitIntoChunks } from "@/utils/helpers";
+
+import "@gfazioli/mantine-marquee/styles.css";
 
 type Technology = {
   name: string;

@@ -1,19 +1,21 @@
 "use client";
 
 import {
-  Container,
-  Title,
-  Text,
+  Box,
   Button,
+  Container,
+  Grid,
   Group,
   Stack,
-  Grid,
-  Box,
+  Text,
+  Title,
 } from "@mantine/core";
-import classes from "./Hero1.module.css";
 import { IconChevronDown, IconRocket } from "@tabler/icons-react";
+
 import { UserCardImage } from "../cards/UserCardImage";
 import { DonateMenu } from "../donate/DonateMenu";
+
+import classes from "./Hero1.module.css";
 
 export const Hero1 = () => {
   return (

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
+
 import {
   Box,
   Container,
@@ -11,6 +12,7 @@ import {
   Title,
 } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
+
 import { NotionBlockRenderer } from "./NotionBlockRenderer";
 
 export function BlogShow({ post, postBlocks }: any) {

@@ -1,8 +1,10 @@
 "use client";
 
-import { List, ListItem } from "@mantine/core";
-import { NotionBlock } from "@/types/notion";
 import React from "react";
+
+import { List, ListItem } from "@mantine/core";
+
+import { type NotionBlock } from "@/types/notion";
 
 interface NotionBlockListProps {
   block: NotionBlock;

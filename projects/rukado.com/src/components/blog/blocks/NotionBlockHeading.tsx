@@ -1,10 +1,13 @@
 "use client";
 
 import React from "react";
+
 import { Title } from "@mantine/core";
-import { NotionBlock, NotionText } from "@/types/notion";
-import { NotionRenderText } from "./NotionRenderText";
+
+import { type NotionBlock, type NotionText } from "@/types/notion";
 import { generateSlug } from "@/utils/helpers";
+
+import { NotionRenderText } from "./NotionRenderText";
 
 type NotionBlockHeadingProps = {
   block: NotionBlock;

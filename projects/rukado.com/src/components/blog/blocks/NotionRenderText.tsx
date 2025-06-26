@@ -1,5 +1,6 @@
 import React from "react";
-import { NotionText } from "@/types/notion";
+
+import { type NotionText } from "@/types/notion";
 
 export function NotionRenderText({
   richText,

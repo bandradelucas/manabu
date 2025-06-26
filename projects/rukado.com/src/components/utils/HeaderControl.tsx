@@ -1,10 +1,11 @@
-import cx from "clsx";
 import {
-  BoxProps,
+  type BoxProps,
   createPolymorphicComponent,
   Tooltip,
   UnstyledButton,
 } from "@mantine/core";
+import cx from "clsx";
+
 import classes from "./HeaderControl.module.css";
 
 export interface HeaderControlProps extends BoxProps {

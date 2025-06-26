@@ -4,7 +4,7 @@ export function NotionBlockParagraph({ block }: { block: any }) {
   return (
     <Text>
       {block.paragraph.rich_text.map((text: any, index: number) => {
-        let content = text.plain_text;
+        const content = text.plain_text;
 
         let node: React.ReactNode = content;
 

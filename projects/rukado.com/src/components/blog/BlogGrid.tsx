@@ -1,6 +1,8 @@
 import { Container, Grid } from "@mantine/core";
-import { BlogCard } from "./BlogCard";
+
 import { getPostBySlugAndLocale, getPosts } from "@/lib/notion";
+
+import { BlogCard } from "./BlogCard";
 
 export async function BlogGrid() {
   // const posts = await getPosts();

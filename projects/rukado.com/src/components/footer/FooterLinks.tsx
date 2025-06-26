@@ -1,11 +1,6 @@
 "use client";
 
 import {
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube,
-} from "@tabler/icons-react";
-import {
   ActionIcon,
   Container,
   Divider,
@@ -13,8 +8,15 @@ import {
   Group,
   Text,
 } from "@mantine/core";
-import classes from "./FooterLinks.module.css";
+import {
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
+
 import LocaleSwitcher from "../utils/LocaleSwitcher";
+
+import classes from "./FooterLinks.module.css";
 
 const data = [
   {

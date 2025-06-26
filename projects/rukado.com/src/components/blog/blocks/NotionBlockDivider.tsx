@@ -1,7 +1,8 @@
 "use client";
 
 import { Divider } from "@mantine/core";
-import { NotionBlock } from "@/types/notion";
+
+import { type NotionBlock } from "@/types/notion";
 
 interface NotionBlockDividerProps {
   block: NotionBlock;

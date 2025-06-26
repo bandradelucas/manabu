@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+
 import { Burger, Container, Group, UnstyledButton } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "./HeaderSimple.module.css";
+
 import RukadoLogo from "../common/logo/RukadoLogo";
 import { ColorSchemeControl } from "../utils/ColorSchemeControl";
+
+import classes from "./HeaderSimple.module.css";
 
 const links = [
   { link: "/tools", label: "Tools" },

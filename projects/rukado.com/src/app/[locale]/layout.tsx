@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { hasLocale,NextIntlClientProvider } from "next-intl";
 import { Press_Start_2P, VT323 } from "next/font/google";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+
 import {
   ColorSchemeScript,
   createTheme,
@@ -11,7 +11,9 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
+
 import { HotKeysHandler } from "@/components/utils/HotKeysHandler";
+import { routing } from "@/i18n/routing";
 import { CodeHighlightProvider } from "@/providers/CodeHighlightProvider";
 
 import "@mantine/core/styles.css";
