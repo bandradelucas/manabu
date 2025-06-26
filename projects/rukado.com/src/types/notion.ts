@@ -84,3 +84,22 @@ export type NotionDivider = {
   type: "divider";
   divider: {};
 };
+
+export type NotionHeading = {
+  type: "heading_1" | "heading_2" | "heading_3";
+  heading_1?: {
+    rich_text: NotionText[];
+    is_toggleable: boolean;
+    color: string;
+  };
+  heading_2?: {
+    rich_text: NotionText[];
+    is_toggleable: boolean;
+    color: string;
+  };
+  heading_3?: {
+    rich_text: NotionText[];
+    is_toggleable: boolean;
+    color: string;
+  };
+};
