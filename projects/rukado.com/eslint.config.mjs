@@ -1,26 +1,68 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import tseslint from "typescript-eslint";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: import.meta.dirname,
 });
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default tseslint.config(
+  {
+    ignores: [".next"],
+  },
+  ...compat.extends("next/core-web-vitals"),
   {
     plugins: {
-      "simple-import-sort": require("eslint-plugin-simple-import-sort"),
+      "simple-import-sort": simpleImportSort,
     },
+    files: ["**/*.ts", "**/*.tsx"],
+    extends: [
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+    ],
     rules: {
-      "simple-import-sort/imports": "error",
+      "@typescript-eslint/array-type": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/consistent-type-imports": [
+        "warn",
+        { prefer: "type-imports", fixStyle: "inline-type-imports" },
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/no-misused-promises": [
+        "error",
+        { checksVoidReturn: { attributes: false } },
+      ],
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            ["^react$", "^next", "^next/(.*)$"],
+            ["^@?\\w"],
+            ["^(@/.*)$"],
+            ["^\\.\\.(?!/?$)", "^\\.\\./?$"], // ../ e ../../
+            ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"], // ./dir/ e ./file e ./
+            ["^.+\\.s?css$"],
+            ["^"],
+          ],
+        },
+      ],
       "simple-import-sort/exports": "error",
-      "react/jsx-max-props-per-line": ["error", { "when": "always" }],
+      "import/order": "off",
     },
-  }
-];
-
-export default eslintConfig;
+  },
+  {
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+  },
+);
