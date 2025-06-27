@@ -4,10 +4,10 @@ import React from "react";
 
 import { Title } from "@mantine/core";
 import {
-  RichTextItemResponse,
   type Heading1BlockObjectResponse,
   type Heading2BlockObjectResponse,
   type Heading3BlockObjectResponse,
+  type RichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
 import { generateSlug } from "@/utils/helpers";
