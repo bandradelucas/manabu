@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
+
 import { List, ListItem } from "@mantine/core";
 import {
-  BulletedListItemBlockObjectResponse,
-  NumberedListItemBlockObjectResponse,
+  type BulletedListItemBlockObjectResponse,
+  type NumberedListItemBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+
 import { NotionRenderText } from "./NotionRenderText";
 
 type NotionBlockListProps = {

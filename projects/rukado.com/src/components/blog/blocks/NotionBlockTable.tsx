@@ -2,11 +2,13 @@
 
 import { Table } from "@mantine/core";
 import {
-  RichTextItemResponse,
-  TableBlockObjectResponse,
+  type RichTextItemResponse,
+  type TableBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+
+import { type NotionBlockWithChildren } from "@/types/notion";
+
 import { NotionRenderText } from "./NotionRenderText";
-import { NotionBlockWithChildren } from "@/types/notion";
 
 type NotionBlockTableProps = {
   block: TableBlockWithChildrenObjectResponse;

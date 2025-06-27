@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
+
 import { Title } from "@mantine/core";
+import {
+  RichTextItemResponse,
+  type Heading1BlockObjectResponse,
+  type Heading2BlockObjectResponse,
+  type Heading3BlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
+
 import { generateSlug } from "@/utils/helpers";
 
 import { NotionRenderText } from "./NotionRenderText";
-import {
-  Heading1BlockObjectResponse,
-  Heading2BlockObjectResponse,
-  Heading3BlockObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
 
 type NotionBlockHeadingProps = {
   block:
@@ -17,6 +20,11 @@ type NotionBlockHeadingProps = {
     | Heading2BlockObjectResponse
     | Heading3BlockObjectResponse;
 };
+
+type Temp =
+  | Heading1BlockObjectResponse
+  | Heading2BlockObjectResponse
+  | Heading3BlockObjectResponse;
 
 export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
   const headingOrderMap: Record<string, 1 | 2 | 3> = {
@@ -28,9 +36,13 @@ export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
   const order = headingOrderMap[block.type];
   if (!order) return null;
 
-  const richText = block[block.type]?.rich_text || [];
-  const color = block[block.type]?.color || "default";
-  const text = richText.map((text: NotionText) => text.plain_text).join(" ");
+  const headingData = (block as any)[block.type];
+
+  const richText = headingData?.rich_text || [];
+  const color = headingData?.color || "default";
+  const text = richText
+    .map((text: RichTextItemResponse) => text.plain_text)
+    .join(" ");
   const slug = generateSlug(text);
 
   return (

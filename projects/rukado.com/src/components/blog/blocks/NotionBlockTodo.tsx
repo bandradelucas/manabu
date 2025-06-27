@@ -1,8 +1,10 @@
 "use client";
 
 import { Box, Checkbox, Stack } from "@mantine/core";
-import { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { type ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+
 import { NotionBlockRenderer } from "../NotionBlockRenderer";
+
 import { NotionRenderText } from "./NotionRenderText";
 
 type NotionBlockTodoProps = {

@@ -1,5 +1,6 @@
-import { RichTextItemResponse } from "@notionhq/client";
 import React from "react";
+
+import { type RichTextItemResponse } from "@notionhq/client";
 
 type NotionRenderTextProps = {
   richText: RichTextItemResponse[];

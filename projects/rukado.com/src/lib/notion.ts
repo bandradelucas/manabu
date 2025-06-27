@@ -2,11 +2,12 @@ import { getLocale } from "next-intl/server";
 
 import {
   Client,
-  DatabaseObjectResponse,
-  ListBlockChildrenResponse,
+  type DatabaseObjectResponse,
+  type ListBlockChildrenResponse,
   PageObjectResponse,
 } from "@notionhq/client";
-import { NotionBlockWithChildren } from "@/types/notion";
+
+import { type NotionBlockWithChildren } from "@/types/notion";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -48,7 +49,6 @@ export async function getPostBySlugAndLocale(slug: string): Promise<{
   if (!post) return null;
 
   const postBlocks = await fetchBlocksRecursively(post.id);
-  console.log(JSON.stringify(postBlocks));
 
   return {
     post,

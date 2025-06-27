@@ -1,5 +1,5 @@
 import { CodeHighlight } from "@mantine/code-highlight";
-import { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { type CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 type NotionBlockCodeProps = {
   block: CodeBlockObjectResponse;

@@ -1,5 +1,5 @@
 import { Image } from "@mantine/core";
-import { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { type ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 type NotionBlockImageProps = {
   block: ImageBlockObjectResponse;
