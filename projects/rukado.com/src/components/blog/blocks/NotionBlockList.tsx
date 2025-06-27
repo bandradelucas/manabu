@@ -1,30 +1,28 @@
 "use client";
 
 import React from "react";
-
 import { List, ListItem } from "@mantine/core";
+import {
+  BulletedListItemBlockObjectResponse,
+  NumberedListItemBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
+import { NotionRenderText } from "./NotionRenderText";
 
-import { type NotionBlock } from "@/types/notion";
+type NotionBlockListProps = {
+  block:
+    | BulletedListItemBlockWithChildrenObjectResponse
+    | NumberedListItemBlockWithChildrenObjectResponse;
+};
 
-interface NotionBlockListProps {
-  block: NotionBlock;
-}
+type BulletedListItemBlockWithChildrenObjectResponse =
+  BulletedListItemBlockObjectResponse & {
+    children?: BulletedListItemBlockWithChildrenObjectResponse[];
+  };
 
-function renderText(richText: any[]) {
-  return richText.map((text: any, index: number) => {
-    const content = text.plain_text;
-    const annotations = text.annotations;
-
-    let el = content;
-
-    if (annotations.bold) el = <strong key={index}>{el}</strong>;
-    if (annotations.italic) el = <em key={index}>{el}</em>;
-    if (annotations.underline) el = <u key={index}>{el}</u>;
-    if (annotations.code) el = <code key={index}>{el}</code>;
-
-    return <React.Fragment key={index}>{el}</React.Fragment>;
-  });
-}
+type NumberedListItemBlockWithChildrenObjectResponse =
+  NumberedListItemBlockObjectResponse & {
+    children?: NumberedListItemBlockWithChildrenObjectResponse[];
+  };
 
 export function NotionBlockList({ block }: NotionBlockListProps) {
   const isBulleted = block.type === "bulleted_list_item";
@@ -41,7 +39,7 @@ export function NotionBlockList({ block }: NotionBlockListProps) {
   return (
     <List type={isNumbered ? "ordered" : "unordered"} style={{ marginTop: 4 }}>
       <ListItem>
-        {renderText(richText)}
+        <NotionRenderText richText={richText} />
         {children.length > 0 && (
           <div style={{ marginTop: 4 }}>
             {children.map((childBlock) => (

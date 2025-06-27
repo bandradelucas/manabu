@@ -1,13 +1,19 @@
 "use client";
 
 import { Table } from "@mantine/core";
-
-import { type NotionBlock, type NotionText } from "@/types/notion";
-
+import {
+  RichTextItemResponse,
+  TableBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { NotionRenderText } from "./NotionRenderText";
+import { NotionBlockWithChildren } from "@/types/notion";
 
 type NotionBlockTableProps = {
-  block: NotionBlock;
+  block: TableBlockWithChildrenObjectResponse;
+};
+
+type TableBlockWithChildrenObjectResponse = TableBlockObjectResponse & {
+  children?: NotionBlockWithChildren[];
 };
 
 export function NotionBlockTable({ block }: NotionBlockTableProps) {
@@ -18,7 +24,7 @@ export function NotionBlockTable({ block }: NotionBlockTableProps) {
 
   if (rows.length === 0) return null;
 
-  const renderCellContent = (cell: NotionText[]) =>
+  const renderCellContent = (cell: RichTextItemResponse[]) =>
     cell.map((text, i) => <NotionRenderText key={i} richText={[text]} />);
 
   return (

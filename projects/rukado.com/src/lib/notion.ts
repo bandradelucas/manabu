@@ -1,6 +1,12 @@
 import { getLocale } from "next-intl/server";
 
-import { Client } from "@notionhq/client";
+import {
+  Client,
+  DatabaseObjectResponse,
+  ListBlockChildrenResponse,
+  PageObjectResponse,
+} from "@notionhq/client";
+import { NotionBlockWithChildren } from "@/types/notion";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -8,7 +14,10 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-export async function getPostBySlugAndLocale(slug: string) {
+export async function getPostBySlugAndLocale(slug: string): Promise<{
+  post: DatabaseObjectResponse;
+  postBlocks: NotionBlockWithChildren[];
+} | null> {
   const locale = await getLocale();
 
   const postsResponse = await notion.databases.query({
@@ -35,7 +44,7 @@ export async function getPostBySlugAndLocale(slug: string) {
     },
   });
 
-  const post = postsResponse.results[0] as any;
+  const post = postsResponse.results[0] as DatabaseObjectResponse;
   if (!post) return null;
 
   const postBlocks = await fetchBlocksRecursively(post.id);
@@ -47,25 +56,28 @@ export async function getPostBySlugAndLocale(slug: string) {
   };
 }
 
-async function fetchBlocksRecursively(blockId: string): Promise<any[]> {
-  const blocks: any[] = [];
+async function fetchBlocksRecursively(
+  blockId: string,
+): Promise<NotionBlockWithChildren[]> {
+  const blocks: NotionBlockWithChildren[] = [];
   let cursor: string | undefined = undefined;
 
   do {
-    const response = await notion.blocks.children.list({
-      block_id: blockId,
-      start_cursor: cursor,
-      page_size: 100,
-    });
+    const response: ListBlockChildrenResponse =
+      await notion.blocks.children.list({
+        block_id: blockId,
+        start_cursor: cursor,
+        page_size: 100,
+      });
 
-    for (const block of response.results) {
+    for (const block of response.results as NotionBlockWithChildren[]) {
       if (block.has_children) {
         block.children = await fetchBlocksRecursively(block.id);
       }
       blocks.push(block);
     }
 
-    cursor = response.next_cursor;
+    cursor = response.next_cursor ?? undefined;
   } while (cursor);
 
   return blocks;

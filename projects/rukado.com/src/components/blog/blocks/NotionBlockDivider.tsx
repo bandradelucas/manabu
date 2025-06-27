@@ -1,11 +1,10 @@
 "use client";
 
 import { Divider } from "@mantine/core";
-
-import { type NotionBlock } from "@/types/notion";
+import { DividerBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 interface NotionBlockDividerProps {
-  block: NotionBlock;
+  block: DividerBlockObjectResponse;
 }
 
 export function NotionBlockDivider({ block }: NotionBlockDividerProps) {

@@ -1,16 +1,17 @@
 "use client";
 
 import { Box, Checkbox, Stack } from "@mantine/core";
-
-import { type NotionBlock } from "@/types/notion";
-
+import { ToDoBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionBlockRenderer } from "../NotionBlockRenderer";
-
 import { NotionRenderText } from "./NotionRenderText";
 
-interface NotionBlockTodoProps {
-  block: NotionBlock;
-}
+type NotionBlockTodoProps = {
+  block: ToDoBlockWithChildrenObjectResponse;
+};
+
+type ToDoBlockWithChildrenObjectResponse = ToDoBlockObjectResponse & {
+  children?: ToDoBlockObjectResponse[];
+};
 
 export function NotionBlockTodo({ block }: NotionBlockTodoProps) {
   if (block.type !== "to_do") return null;

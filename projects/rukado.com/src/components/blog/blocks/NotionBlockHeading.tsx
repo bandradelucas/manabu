@@ -1,16 +1,21 @@
 "use client";
 
 import React from "react";
-
 import { Title } from "@mantine/core";
-
-import { type NotionBlock, type NotionText } from "@/types/notion";
 import { generateSlug } from "@/utils/helpers";
 
 import { NotionRenderText } from "./NotionRenderText";
+import {
+  Heading1BlockObjectResponse,
+  Heading2BlockObjectResponse,
+  Heading3BlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 
 type NotionBlockHeadingProps = {
-  block: NotionBlock;
+  block:
+    | Heading1BlockObjectResponse
+    | Heading2BlockObjectResponse
+    | Heading3BlockObjectResponse;
 };
 
 export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {

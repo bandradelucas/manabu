@@ -1,12 +1,13 @@
+import { RichTextItemResponse } from "@notionhq/client";
 import React from "react";
 
-import { type NotionText } from "@/types/notion";
+type NotionRenderTextProps = {
+  richText: RichTextItemResponse[];
+};
 
 export function NotionRenderText({
   richText,
-}: {
-  richText: NotionText[];
-}): React.ReactNode {
+}: NotionRenderTextProps): React.ReactNode {
   return richText.map((textObj, index) => {
     if (textObj.type !== "text") return null;
 

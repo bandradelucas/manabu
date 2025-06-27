@@ -1,35 +1,46 @@
 import React from "react";
 
 import {
-  type NotionDivider,
-  type NotionHeading,
-  type NotionListItem,
-  type NotionParagraph,
-  type NotionTable,
-  type NotionToDo,
-} from "@/types/notion";
-
-import { NotionBlockCode } from "./blocks/NotionBlockCode";
-import { NotionBlockDivider } from "./blocks/NotionBlockDivider";
-import { NotionBlockHeading } from "./blocks/NotionBlockHeading";
+  BulletedListItemBlockObjectResponse,
+  CodeBlockObjectResponse,
+  DividerBlockObjectResponse,
+  Heading1BlockObjectResponse,
+  Heading2BlockObjectResponse,
+  Heading3BlockObjectResponse,
+  ImageBlockObjectResponse,
+  NumberedListItemBlockObjectResponse,
+  ParagraphBlockObjectResponse,
+  TableBlockObjectResponse,
+  ToDoBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { NotionBlockImage } from "./blocks/NotionBlockImage";
-import { NotionBlockList } from "./blocks/NotionBlockList";
 import { NotionBlockParagraph } from "./blocks/NotionBlockParagraph";
-import { NotionBlockTable } from "./blocks/NotionBlockTable";
+import { NotionBlockCode } from "./blocks/NotionBlockCode";
+import { NotionBlockList } from "./blocks/NotionBlockList";
+import { NotionBlockDivider } from "./blocks/NotionBlockDivider";
 import { NotionBlockTodo } from "./blocks/NotionBlockTodo";
+import { NotionBlockTable } from "./blocks/NotionBlockTable";
+import { NotionBlockHeading } from "./blocks/NotionBlockHeading";
 
 import "@mantine/code-highlight/styles.css";
+import { NotionBlockWithChildren } from "@/types/notion";
 
 type BlockTypeMap = {
-  paragraph: NotionParagraph;
-  bulleted_list_item: NotionListItem;
-  numbered_list_item: NotionListItem;
-  divider: NotionDivider;
-  to_do: NotionToDo;
-  table: NotionTable;
-  heading_1: NotionHeading;
-  heading_2: NotionHeading;
-  heading_3: NotionHeading;
+  paragraph: ParagraphBlockObjectResponse;
+  image: ImageBlockObjectResponse;
+  code: CodeBlockObjectResponse;
+  bulleted_list_item: BulletedListItemBlockObjectResponse;
+  numbered_list_item: NumberedListItemBlockObjectResponse;
+  divider: DividerBlockObjectResponse;
+  to_do: ToDoBlockObjectResponse;
+  table: TableBlockObjectResponse;
+  heading_1: Heading1BlockObjectResponse;
+  heading_2: Heading2BlockObjectResponse;
+  heading_3: Heading3BlockObjectResponse;
+};
+
+type NotionBlockRendererProps = {
+  blocks: NotionBlockWithChildren[];
 };
 
 const blockRenderers: {
@@ -48,7 +59,7 @@ const blockRenderers: {
   heading_3: (block) => <NotionBlockHeading block={block} />,
 };
 
-export function NotionBlockRenderer({ blocks }: any) {
+export function NotionBlockRenderer({ blocks }: NotionBlockRendererProps) {
   return (
     <>
       {blocks.map((block: any) => {

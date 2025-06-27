@@ -1,6 +1,11 @@
 import { Image } from "@mantine/core";
+import { ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-export function NotionBlockImage({ block }: { block: any }) {
+type NotionBlockImageProps = {
+  block: ImageBlockObjectResponse;
+};
+
+export function NotionBlockImage({ block }: NotionBlockImageProps) {
   const imageUrl =
     block.image.type === "external"
       ? block.image.external.url

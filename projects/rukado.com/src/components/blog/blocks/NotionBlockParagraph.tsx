@@ -1,6 +1,11 @@
 import { Code, Text } from "@mantine/core";
+import { ParagraphBlockObjectResponse } from "@notionhq/client";
 
-export function NotionBlockParagraph({ block }: { block: any }) {
+type NotionBlockParagraphProps = {
+  block: ParagraphBlockObjectResponse;
+};
+
+export function NotionBlockParagraph({ block }: NotionBlockParagraphProps) {
   return (
     <Text>
       {block.paragraph.rich_text.map((text: any, index: number) => {

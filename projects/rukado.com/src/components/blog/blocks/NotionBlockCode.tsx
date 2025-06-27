@@ -1,6 +1,11 @@
 import { CodeHighlight } from "@mantine/code-highlight";
+import { CodeBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-export function NotionBlockCode({ block }: { block: any }) {
+type NotionBlockCodeProps = {
+  block: CodeBlockObjectResponse;
+};
+
+export function NotionBlockCode({ block }: NotionBlockCodeProps) {
   return (
     <CodeHighlight
       key={block.id}
