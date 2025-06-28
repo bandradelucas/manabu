@@ -1,0 +1,30 @@
+meta {
+  name: getPostBySlugAndLocale(slug)
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.notion.com/v1/databases/2153c873df7980ea8b85ca71c011b8a0/query
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "filter": {
+      "and": [
+        {
+          "property": "Language Code",
+          "rollup": {
+            "any": {
+              "rich_text": {
+                "equals": "en-us"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

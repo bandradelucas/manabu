@@ -1,0 +1,11 @@
+meta {
+  name: fetchBlocksRecursively(blockId)
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://api.notion.com/v1/blocks/21c3c873-df79-8001-8e01-e7eb1776a2f5/children
+  body: none
+  auth: inherit
+}
