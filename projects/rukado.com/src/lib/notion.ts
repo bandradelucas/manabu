@@ -4,7 +4,6 @@ import {
   Client,
   type DatabaseObjectResponse,
   type ListBlockChildrenResponse,
-  PageObjectResponse,
 } from "@notionhq/client";
 
 import { type NotionBlockWithChildren } from "@/types/notion";
@@ -13,7 +12,48 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-const databaseId = process.env.NOTION_DATABASE_ID;
+const translatesDatabaseId = process.env.NOTION_TRANSLATES_DATABASE_ID;
+
+export async function getLatestPosts(): Promise<any> {
+  const locale = await getLocale();
+
+  const postsResponse = await notion.databases.query({
+    database_id: translatesDatabaseId!,
+    filter: {
+      and: [
+        {
+          property: "Language Code",
+          rollup: {
+            any: {
+              rich_text: {
+                equals: locale,
+              },
+            },
+          },
+        },
+        {
+          property: "Is Published",
+          rollup: {
+            any: {
+              checkbox: {
+                equals: true,
+              },
+            },
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Publish Date",
+        direction: "descending",
+      },
+    ],
+    page_size: 4,
+  });
+
+  return postsResponse.results;
+}
 
 export async function getPostBySlugAndLocale(slug: string): Promise<{
   post: DatabaseObjectResponse;
@@ -22,7 +62,7 @@ export async function getPostBySlugAndLocale(slug: string): Promise<{
   const locale = await getLocale();
 
   const postsResponse = await notion.databases.query({
-    database_id: databaseId!,
+    database_id: translatesDatabaseId!,
     filter: {
       and: [
         {

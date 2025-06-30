@@ -21,11 +21,6 @@ type NotionBlockHeadingProps = {
     | Heading3BlockObjectResponse;
 };
 
-type Temp =
-  | Heading1BlockObjectResponse
-  | Heading2BlockObjectResponse
-  | Heading3BlockObjectResponse;
-
 export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
   const headingOrderMap: Record<string, 1 | 2 | 3> = {
     heading_1: 1,

@@ -1,11 +1,11 @@
 meta {
   name: getPosts()
   type: http
-  seq: 1
+  seq: 2
 }
 
 post {
-  url: https://api.notion.com/v1/databases/2153c873df7980feb538dee8c080e2cf/query
+  url: https://api.notion.com/v1/databases/2153c873df7980ea8b85ca71c011b8a0/query
   body: json
   auth: inherit
 }
@@ -13,10 +13,28 @@ post {
 body:json {
   {
     "filter": {
-      "property": "Is Published",
-      "checkbox": {
-        "equals": true
-      }
+      "and": [
+        {
+          "property": "Language Code",
+          "rollup": {
+            "any": {
+              "rich_text": {
+                "equals": "en-us"
+              }
+            }
+          }
+        },
+        {
+          "property": "Is Published",
+          "rollup": {
+            "any": {
+              "checkbox": {
+                "equals": true
+              }
+            }
+          }
+        }
+      ]
     },
     "sorts": [
       {

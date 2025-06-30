@@ -14,8 +14,9 @@ import {
 import { NavigationProgress } from "@mantine/nprogress";
 
 import { NotionBlockRenderer } from "./NotionBlockRenderer";
+import { BlogPostAuthor } from "./BlogPostAuthor";
 
-export function BlogShow({ post, postBlocks }: any) {
+export function BlogPostShow({ post, postBlocks }: any) {
   const locale = useLocale();
   const targetRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -82,14 +83,13 @@ export function BlogShow({ post, postBlocks }: any) {
                 year: "numeric",
               }).format(new Date(post.created_time))}
             </Text>
-            <h1></h1>
             <Box ref={targetRef}>
               <NotionBlockRenderer blocks={postBlocks} />
             </Box>
+            <BlogPostAuthor />
           </Grid.Col>
         </Grid>
       </Container>
-      <Container></Container>
     </>
   );
 }

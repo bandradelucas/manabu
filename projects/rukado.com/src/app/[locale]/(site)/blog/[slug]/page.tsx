@@ -1,7 +1,6 @@
-import Error from "next/error";
-
-import { BlogShow } from "@/components/blog/BlogShow";
+import { BlogPostShow } from "@/components/blog/BlogPostShow";
 import { getPostBySlugAndLocale } from "@/lib/notion";
+import { notFound } from "next/navigation";
 
 export default async function BlogPageShow({
   params,
@@ -11,10 +10,10 @@ export default async function BlogPageShow({
   const { slug } = await params;
   const postResponse = await getPostBySlugAndLocale(slug);
   if (!postResponse) {
-    return <Error statusCode={404} />;
+    notFound();
   }
 
   const { post, postBlocks } = postResponse;
 
-  return <BlogShow post={post} postBlocks={postBlocks} />;
+  return <BlogPostShow post={post} postBlocks={postBlocks} />;
 }

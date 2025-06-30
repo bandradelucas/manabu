@@ -3,6 +3,9 @@
     "title": "Hello world!",
     "about": "Go to the about page"
   },
+  "blog": {
+    "latest_posts": "Últimas Postagens"
+  },
   "LocaleSwitcher": {
     "label": "xisde",
     "locale": {
