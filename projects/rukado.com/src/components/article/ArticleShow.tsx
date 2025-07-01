@@ -14,9 +14,14 @@ import {
 import { NavigationProgress } from "@mantine/nprogress";
 
 import { NotionBlockRenderer } from "./NotionBlockRenderer";
-import { BlogPostAuthor } from "./BlogPostAuthor";
+import { ArticleAuthor } from "./ArticleAuthor";
 
-export function BlogPostShow({ post, postBlocks }: any) {
+type ArticleShowProps = {
+  article: any;
+  articleBlocks: any;
+};
+
+export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {
   const locale = useLocale();
   const targetRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -74,19 +79,19 @@ export function BlogPostShow({ post, postBlocks }: any) {
 
           <Grid.Col span={{ base: 12, md: 9 }}>
             <Title order={1} ta="center" mt="sm">
-              {post.properties.Title.title[0].plain_text}
+              {article.properties.Title.title[0].plain_text}
             </Title>
             <Text c="dimmed" ta="center" mt="md">
               {new Intl.DateTimeFormat(locale, {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
-              }).format(new Date(post.created_time))}
+              }).format(new Date(article.created_time))}
             </Text>
             <Box ref={targetRef}>
-              <NotionBlockRenderer blocks={postBlocks} />
+              <NotionBlockRenderer blocks={articleBlocks} />
             </Box>
-            <BlogPostAuthor />
+            <ArticleAuthor />
           </Grid.Col>
         </Grid>
       </Container>

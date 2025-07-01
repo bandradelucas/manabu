@@ -14,10 +14,10 @@ const notion = new Client({
 
 const translatesDatabaseId = process.env.NOTION_TRANSLATES_DATABASE_ID;
 
-export async function getLatestPosts(): Promise<any> {
+export async function getLatestArticles(): Promise<any> {
   const locale = await getLocale();
 
-  const postsResponse = await notion.databases.query({
+  const articlesResponse = await notion.databases.query({
     database_id: translatesDatabaseId!,
     filter: {
       and: [
@@ -52,16 +52,16 @@ export async function getLatestPosts(): Promise<any> {
     page_size: 4,
   });
 
-  return postsResponse.results;
+  return articlesResponse.results;
 }
 
-export async function getPostBySlugAndLocale(slug: string): Promise<{
-  post: DatabaseObjectResponse;
-  postBlocks: NotionBlockWithChildren[];
+export async function getArticleBySlugAndLocale(slug: string): Promise<{
+  article: DatabaseObjectResponse;
+  articleBlocks: NotionBlockWithChildren[];
 } | null> {
   const locale = await getLocale();
 
-  const postsResponse = await notion.databases.query({
+  const articlesResponse = await notion.databases.query({
     database_id: translatesDatabaseId!,
     filter: {
       and: [
@@ -85,14 +85,14 @@ export async function getPostBySlugAndLocale(slug: string): Promise<{
     },
   });
 
-  const post = postsResponse.results[0] as DatabaseObjectResponse;
-  if (!post) return null;
+  const article = articlesResponse.results[0] as DatabaseObjectResponse;
+  if (!article) return null;
 
-  const postBlocks = await fetchBlocksRecursively(post.id);
+  const articleBlocks = await fetchBlocksRecursively(article.id);
 
   return {
-    post,
-    postBlocks: postBlocks,
+    article,
+    articleBlocks: articleBlocks,
   };
 }
 

@@ -12,7 +12,7 @@ export default function LocaleSwitcher() {
   const currentLocale = useLocale();
   const locales = routing.locales.map((locale) => ({
     value: locale,
-    label: t(`locale.${locale}`, { locale: locale }),
+    label: t(`locales.${locale}`, { locale: locale }),
   }));
 
   const router = useRouter();

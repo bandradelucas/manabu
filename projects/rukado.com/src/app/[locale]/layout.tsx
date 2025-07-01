@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { hasLocale,NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Press_Start_2P, VT323 } from "next/font/google";
 import { notFound } from "next/navigation";
 
@@ -7,6 +7,7 @@ import {
   ColorSchemeScript,
   createTheme,
   DEFAULT_THEME,
+  MantineColorsTuple,
   mantineHtmlProps,
   MantineProvider,
 } from "@mantine/core";
@@ -41,6 +42,22 @@ const theme = createTheme({
   headings: {
     fontFamily: `Press Start 2P, ${DEFAULT_THEME.fontFamily}`,
   },
+  defaultRadius: "xs",
+  colors: {
+    primary: [
+      "#f7ebff",
+      "#e6d5fd",
+      "#c9a8f4",
+      "#ab78ec",
+      "#914fe6",
+      "#7e30e1",
+      "#7928e1",
+      "#671bc8",
+      "#5c16b4",
+      "#4f0f9f",
+    ],
+  },
+  primaryColor: "primary",
 });
 
 export default async function LocaleLayout({

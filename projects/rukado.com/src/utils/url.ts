@@ -50,3 +50,30 @@ export function getLocalizedUrl(url: string, locale: string): string {
 export function normalizeUrl(url: string): string {
   return url.replace(/([^:]\/)\/+/g, "$1");
 }
+
+export function getExternalLinkWithUTM(
+  baseUrl: string,
+  {
+    source = "rukado.com",
+    medium = "website",
+    campaign = "outbound",
+    extraParams = {},
+  }: {
+    source?: string;
+    medium?: string;
+    campaign?: string;
+    extraParams?: Record<string, string>;
+  } = {},
+): string {
+  const url = new URL(baseUrl);
+
+  url.searchParams.set("utm_source", source);
+  url.searchParams.set("utm_medium", medium);
+  url.searchParams.set("utm_campaign", campaign);
+
+  for (const [key, value] of Object.entries(extraParams)) {
+    url.searchParams.set(key, value);
+  }
+
+  return url.toString();
+}

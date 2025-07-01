@@ -8,9 +8,9 @@ export type NotionBlockWithChildren = BlockObjectResponse & {
   children?: NotionBlockWithChildren[];
 };
 
-export type Post = DatabaseObjectResponse & {
+export type Article = DatabaseObjectResponse & {
   properties: {
-    Post: {
+    Article: {
       id: string;
       type: "relation";
       relation: Array<{

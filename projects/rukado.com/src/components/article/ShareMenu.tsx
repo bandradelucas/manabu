@@ -49,7 +49,6 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
           <ActionIcon variant="subtle" color="gray" aria-label="Compartilhar">
             <IconShare
               size={20}
-              color="var(--mantine-color-blue-6)"
               stroke={1.5}
             />
           </ActionIcon>

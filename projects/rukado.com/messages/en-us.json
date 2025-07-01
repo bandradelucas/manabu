@@ -1,16 +1,31 @@
 {
   "homepage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "title": "My Knowledge Arsenal",
+    "subtitle": "Site dedicated to publishing personal projects, useful tools for developers, and technical articles.",
+    "explore_projects": "Explore Projects"
   },
-  "blog": {
-    "latest_posts": "Últimas Postagens"
+  "footer": {
+    "description": "Built with Next.js 15 with App Router and Mantine",
+    "all_rights_reserved": "© 2025 rukado.com. All rights reserved.",
+    "articles": "Artigos",
+    "latest_articles": "Últimos Artigos"
+  },
+  "articles": {
+    "articles": "Articles",
+    "latest_articles": "Latest Articles"
+  },
+  "about": {
+    "software_engineer": "Software Engineer"
   },
   "LocaleSwitcher": {
-    "label": "xisde",
-    "locale": {
+    "locales": {
       "en-us": "English (US)",
       "pt-br": "Português (Brasil)"
     }
+  },
+  "DonateMenu": {
+    "donate": "Donate",
+    "not_from_brazil": "I'm not from Brazil",
+    "im_from_brazil": "I'm from Brazil"
   }
 }

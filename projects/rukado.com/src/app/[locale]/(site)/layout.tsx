@@ -1,5 +1,6 @@
 import { FooterLinks } from "@/components/footer/FooterLinks";
-import { HeaderSimple } from "@/components/header/HeaderSimple";
+import { HeaderMenu } from "@/components/header/HeaderMenu";
+import { Box, Stack } from "@mantine/core";
 
 export default async function SiteLayout({
   children,
@@ -8,7 +9,7 @@ export default async function SiteLayout({
 }) {
   return (
     <>
-      <HeaderSimple />
+      <HeaderMenu />
       {children}
       <FooterLinks />
     </>

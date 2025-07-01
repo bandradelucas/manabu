@@ -1,5 +1,5 @@
 erDiagram
-    Posts {
+    Articles {
         string title
         hasMany[] translations FK
         datetime createdTime
@@ -8,7 +8,7 @@ erDiagram
     Translations {
         string title
         string slug "my-slug"
-        hasOne post
+        hasOne article
         hasOne language FK
         rollup languageCode "en-us, pt-br"
         datetime createdTime
@@ -20,5 +20,5 @@ erDiagram
         datetime createdTime
         datetime lastEditedTime
     }
-    Posts 1 to 0+ Translations : "has many"
+    Articles 1 to 0+ Translations : "has many"
     Translations 1 to 1 Languages: "has one"

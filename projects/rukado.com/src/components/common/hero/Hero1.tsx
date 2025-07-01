@@ -16,20 +16,21 @@ import { UserCardImage } from "../cards/UserCardImage";
 import { DonateMenu } from "../donate/DonateMenu";
 
 import classes from "./Hero1.module.css";
+import { useTranslations } from "next-intl";
 
 export const Hero1 = () => {
+  const t = useTranslations("homepage");
   return (
     <Container py={60}>
       <Grid gutter={40} align="center">
         <Grid.Col span={{ base: 12, md: 7 }}>
           <Stack gap="xl">
             <Title className={classes?.title} order={1} size="h1">
-              Meu arsenal de conhecimento
+              {t("title")}
             </Title>
 
             <Text size="xl" c="dimmed" maw={600}>
-              Site destinado a publicação de projetos pessoais, ferramentas
-              úteis para devs e blog.
+              {t("subtitle")}
             </Text>
 
             <Group mt="xl">
@@ -38,7 +39,7 @@ export const Hero1 = () => {
                 leftSection={<IconRocket />}
                 rightSection={<IconChevronDown />}
               >
-                Conferir Projetos
+                {t("explore_projects")}
               </Button>
               <DonateMenu />
             </Group>

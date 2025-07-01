@@ -1,35 +1,34 @@
 "use client";
 
+import Link from "next/link";
+import { useLocale } from "next-intl";
 import { Anchor, Card, Group, Image, Text } from "@mantine/core";
 import { IconPhotoOff } from "@tabler/icons-react";
-
-import classes from "./BlogPostCard.module.css";
-import Link from "next/link";
-import { Post } from "@/types/notion";
+import { Article } from "@/types/notion";
 import ShareMenu from "./ShareMenu";
-import { getAbsoluteUrl, getLocalizedUrl } from "@/utils/url";
-import { useLocale } from "next-intl";
+import { getLocalizedUrl } from "@/utils/url";
+import classes from "./ArticleCard.module.css";
 
-type BlogPostCardProps = {
-  post: Post;
+type ArticleCardProps = {
+  article: Article;
 };
 
-export function BlogPostCard({ post }: BlogPostCardProps) {
+export function ArticleCard({ article }: ArticleCardProps) {
   const locale = useLocale();
-  const postCover = post.cover?.type === "file" ? post.cover : null;
+  const articleCover = article.cover?.type === "file" ? article.cover : null;
 
   return (
     <Card withBorder padding="lg" radius="md" className={classes.card}>
       <Anchor
         component={Link}
-        href={`/${locale}/blog/${post.properties.Slug.rich_text[0].plain_text}`}
+        href={`/${locale}/articles/${article.properties.Slug.rich_text[0].plain_text}`}
         underline="hover"
       >
         <Card.Section mb="sm">
-          {postCover ? (
+          {articleCover ? (
             <Image
-              src={postCover?.file.url}
-              alt={post.properties.Title.title[0].plain_text}
+              src={articleCover?.file.url}
+              alt={article.properties.Title.title[0].plain_text}
               height={180}
             />
           ) : (
@@ -38,7 +37,7 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
         </Card.Section>
         {/* <Badge variant="light">decorations</Badge> */}
         <Text className={classes.title} c="white">
-          {post.properties.Title.title[0].plain_text}
+          {article.properties.Title.title[0].plain_text}
         </Text>
       </Anchor>
 
@@ -84,10 +83,10 @@ export function BlogPostCard({ post }: BlogPostCardProps) {
               </ActionIcon> */}
             <ShareMenu
               url={getLocalizedUrl(
-                `/blog/${post.properties.Slug.rich_text[0].plain_text}`,
+                `/articles/${article.properties.Slug.rich_text[0].plain_text}`,
                 locale,
               )}
-              title={post.properties.Title.title[0].plain_text}
+              title={article.properties.Title.title[0].plain_text}
             />
           </Group>
         </Group>
