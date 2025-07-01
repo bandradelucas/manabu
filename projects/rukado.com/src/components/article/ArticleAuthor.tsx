@@ -1,3 +1,6 @@
+import { useTranslations } from "next-intl";
+
+import { Avatar, Box, Group, Text } from "@mantine/core";
 import {
   IconAt,
   IconBrandGithub,
@@ -6,9 +9,8 @@ import {
   IconBrandX,
   IconPhoneCall,
 } from "@tabler/icons-react";
-import { Avatar, Box, Group, Text } from "@mantine/core";
+
 import { getExternalLinkWithUTM } from "@/utils/url";
-import { useTranslations } from "next-intl";
 
 export function ArticleAuthor() {
   const t = useTranslations("about");

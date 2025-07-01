@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import {
   Box,
   Button,
@@ -16,7 +18,6 @@ import { UserCardImage } from "../cards/UserCardImage";
 import { DonateMenu } from "../donate/DonateMenu";
 
 import classes from "./Hero1.module.css";
-import { useTranslations } from "next-intl";
 
 export const Hero1 = () => {
   const t = useTranslations("homepage");

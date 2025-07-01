@@ -1,6 +1,7 @@
+import { Box, Stack } from "@mantine/core";
+
 import { FooterLinks } from "@/components/footer/FooterLinks";
 import { HeaderMenu } from "@/components/header/HeaderMenu";
-import { Box, Stack } from "@mantine/core";
 
 export default async function SiteLayout({
   children,

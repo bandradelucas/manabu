@@ -1,6 +1,7 @@
+import { notFound } from "next/navigation";
+
 import { ArticleShow } from "@/components/article/ArticleShow";
 import { getArticleBySlugAndLocale } from "@/lib/notion";
-import { notFound } from "next/navigation";
 
 export default async function ArticleShowPage({
   params,

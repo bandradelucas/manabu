@@ -1,12 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useLocale } from "next-intl";
+import Link from "next/link";
+
 import { Anchor, Card, Group, Image, Text } from "@mantine/core";
 import { IconPhotoOff } from "@tabler/icons-react";
-import { Article } from "@/types/notion";
-import ShareMenu from "./ShareMenu";
+
+import { type Article } from "@/types/notion";
 import { getLocalizedUrl } from "@/utils/url";
+
+import ShareMenu from "./ShareMenu";
+
 import classes from "./ArticleCard.module.css";
 
 type ArticleCardProps = {

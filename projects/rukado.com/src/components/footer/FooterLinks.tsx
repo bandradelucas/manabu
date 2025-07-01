@@ -1,5 +1,9 @@
 "use client";
 
+import { useMemo } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
+
 import {
   ActionIcon,
   Container,
@@ -16,13 +20,11 @@ import {
   IconBrandYoutube,
 } from "@tabler/icons-react";
 
+import { getExternalLinkWithUTM } from "@/utils/url";
+
 import LocaleSwitcher from "../utils/LocaleSwitcher";
 
 import classes from "./FooterLinks.module.css";
-import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
-import { useMemo } from "react";
-import { getExternalLinkWithUTM } from "@/utils/url";
 
 export function FooterLinks() {
   const locale = useLocale();

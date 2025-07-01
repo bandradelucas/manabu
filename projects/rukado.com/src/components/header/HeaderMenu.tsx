@@ -1,8 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
-import { IconChevronDown } from "@tabler/icons-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Burger,
   Center,
@@ -12,9 +13,11 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "./HeaderMenu.module.css";
+import { IconChevronDown } from "@tabler/icons-react";
+
 import RukadoLogo from "../common/logo/RukadoLogo";
-import Link from "next/link";
+
+import classes from "./HeaderMenu.module.css";
 
 const items = [
   { url: "/articles", label: "Articles" },

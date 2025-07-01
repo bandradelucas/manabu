@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { Menu, ActionIcon, Tooltip, CopyButton } from "@mantine/core";
+
+import { ActionIcon, CopyButton,Menu, Tooltip } from "@mantine/core";
 import {
-  IconShare,
-  IconLink,
-  IconBrandX,
   IconBrandFacebook,
-  IconBrandWhatsapp,
   IconBrandTelegram,
+  IconBrandWhatsapp,
+  IconBrandX,
+  IconLink,
+  IconShare,
 } from "@tabler/icons-react";
+
 import { getAbsoluteUrl } from "@/utils/url";
 
 type ShareMenuProps = {

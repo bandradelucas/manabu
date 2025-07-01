@@ -1,8 +1,12 @@
 import { getTranslations } from "next-intl/server";
+
 import { Container, Stack } from "@mantine/core";
+
 import { getLatestArticles } from "@/lib/notion";
-import { ArticleGrid } from "./ArticleGrid";
+
 import PageHeader from "../common/page-header/PageHeader";
+
+import { ArticleGrid } from "./ArticleGrid";
 
 export async function LatestArticles() {
   const articles = await getLatestArticles();

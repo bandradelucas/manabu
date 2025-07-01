@@ -1,7 +1,9 @@
 "use client";
 
-import { Article } from "@/types/notion";
 import { Grid } from "@mantine/core";
+
+import { type Article } from "@/types/notion";
+
 import { ArticleCard } from "./ArticleCard";
 
 type ArticleGridProps = {

@@ -1,4 +1,5 @@
-import { getExternalLinkWithUTM } from "@/utils/url";
+import { useTranslations } from "next-intl";
+
 import { Button, Menu, Text } from "@mantine/core";
 import {
   IconArrowsLeftRight,
@@ -6,7 +7,8 @@ import {
   IconMessageCircle,
   IconPhoto,
 } from "@tabler/icons-react";
-import { useTranslations } from "next-intl";
+
+import { getExternalLinkWithUTM } from "@/utils/url";
 
 export function DonateMenu() {
   const t = useTranslations("DonateMenu");

@@ -1,7 +1,7 @@
 import {
-  DatabaseObjectResponse,
-  RichTextItemResponse,
   type BlockObjectResponse,
+  type DatabaseObjectResponse,
+  type RichTextItemResponse,
 } from "@notionhq/client";
 
 export type NotionBlockWithChildren = BlockObjectResponse & {

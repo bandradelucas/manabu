@@ -1,7 +1,9 @@
-import { getExternalLinkWithUTM } from "@/utils/url";
+import { useTranslations } from "next-intl";
+
 import { Avatar, Button, Card, Space, Text } from "@mantine/core";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { useTranslations } from "next-intl";
+
+import { getExternalLinkWithUTM } from "@/utils/url";
 
 const stats = [
   { value: "34K", label: "Followers" },

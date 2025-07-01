@@ -13,8 +13,8 @@ import {
 } from "@mantine/core";
 import { NavigationProgress } from "@mantine/nprogress";
 
-import { NotionBlockRenderer } from "./NotionBlockRenderer";
 import { ArticleAuthor } from "./ArticleAuthor";
+import { NotionBlockRenderer } from "./NotionBlockRenderer";
 
 type ArticleShowProps = {
   article: any;
