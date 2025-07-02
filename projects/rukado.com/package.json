@@ -21,6 +21,7 @@
     "next-intl": "^4.3.4",
     "notion-client": "^7.4.2",
     "posthog-js": "^1.256.1",
+    "posthog-node": "^5.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "shiki": "^3.7.0"
