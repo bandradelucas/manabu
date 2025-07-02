@@ -1,4 +1,0 @@
-onlyBuiltDependencies:
-  - canvas
-  - sharp
-  - unrs-resolver
