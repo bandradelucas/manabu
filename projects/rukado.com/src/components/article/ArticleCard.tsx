@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import Link from "next/link";
 
-import { Anchor, Card, Group, Image, Text } from "@mantine/core";
+import { Anchor, Box, Card, Flex, Group, Image, Text } from "@mantine/core";
 import { IconPhotoOff } from "@tabler/icons-react";
 
 import { type Article } from "@/types/notion";
@@ -36,7 +36,9 @@ export function ArticleCard({ article }: ArticleCardProps) {
               height={180}
             />
           ) : (
-            <IconPhotoOff />
+            <Flex mih={180} bg="#444" justify="center" align="center">
+              <IconPhotoOff />
+            </Flex>
           )}
         </Card.Section>
         {/* <Badge variant="light">decorations</Badge> */}

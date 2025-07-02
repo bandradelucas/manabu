@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import {
   ActionIcon,
+  Anchor,
   Container,
   Divider,
   Flex,
@@ -79,7 +80,9 @@ export function FooterLinks() {
       </Container>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <div>rukado.com</div>
+          <Anchor component={Link} href="/" c="white">
+            rukado.com
+          </Anchor>
           <Text size="xs" c="dimmed" className={classes.description}>
             {t("footer.description")}
           </Text>

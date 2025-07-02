@@ -18,6 +18,13 @@
   "about": {
     "software_engineer": "Engenheiro de Software"
   },
+  "error": {
+    "404": {
+      "title": "Você encontrou um lugar secreto.",
+      "description": "Infelizmente, esta é apenas uma página 404. Você pode ter digitado o endereço errado ou a página foi movida para outra URL."
+    },
+    "button_refresh": "Recarregar a página"
+  },
   "LocaleSwitcher": {
     "locales": {
       "en-us": "English (US)",
