@@ -7,7 +7,6 @@ import {
   ColorSchemeScript,
   createTheme,
   DEFAULT_THEME,
-  MantineColorsTuple,
   mantineHtmlProps,
   MantineProvider,
 } from "@mantine/core";

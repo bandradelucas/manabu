@@ -1,6 +1,8 @@
-import { Button, Container, Group, Text, Title } from "@mantine/core";
-import classes from "./HttpError.module.css";
 import { useTranslations } from "next-intl";
+
+import { Button, Container, Group, Text, Title } from "@mantine/core";
+
+import classes from "./HttpError.module.css";
 
 type HttpErrorProps = {
   code: number;

@@ -5,8 +5,6 @@ import {
   Card,
   Center,
   Container,
-  Divider,
-  Flex,
   Group,
   SimpleGrid,
   Space,

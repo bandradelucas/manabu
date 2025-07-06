@@ -4,10 +4,6 @@ import { Avatar, Box, Group, Text } from "@mantine/core";
 import {
   IconAt,
   IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconBrandX,
-  IconPhoneCall,
 } from "@tabler/icons-react";
 
 import { getExternalLinkWithUTM } from "@/utils/url";

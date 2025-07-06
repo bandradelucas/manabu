@@ -8,7 +8,7 @@ type NotionBlockParagraphProps = {
 export function NotionBlockParagraph({ block }: NotionBlockParagraphProps) {
   return (
     <Text>
-      {block.paragraph.rich_text.map((text: any, index: number) => {
+      {block.paragraph.rich_text.map((text, index: number) => {
         const content = text.plain_text;
 
         let node: React.ReactNode = content;

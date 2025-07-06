@@ -1,5 +1,5 @@
 import { useTransition } from "react";
-import { Locale, useLocale, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
 import { Select } from "@mantine/core";
@@ -16,7 +16,7 @@ export default function LocaleSwitcher() {
   }));
 
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [isPending] = useTransition();
   const pathname = usePathname();
   const params = useParams();
 

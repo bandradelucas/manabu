@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-
-import { ActionIcon, CopyButton,Menu, Tooltip } from "@mantine/core";
+import { ActionIcon, CopyButton, Menu, Tooltip } from "@mantine/core";
 import {
   IconBrandFacebook,
   IconBrandTelegram,
@@ -10,8 +8,6 @@ import {
   IconShare,
 } from "@tabler/icons-react";
 
-import { getAbsoluteUrl } from "@/utils/url";
-
 type ShareMenuProps = {
   url: string;
   title?: string;
@@ -19,7 +15,7 @@ type ShareMenuProps = {
 
 export default function ShareMenu({ url, title }: ShareMenuProps) {
   const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title || "");
+  const encodedTitle = encodeURIComponent(title ?? "");
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
@@ -49,10 +45,7 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
       <Menu.Target>
         <Tooltip label="Compartilhar" position="top" withArrow>
           <ActionIcon variant="subtle" color="gray" aria-label="Compartilhar">
-            <IconShare
-              size={20}
-              stroke={1.5}
-            />
+            <IconShare size={20} stroke={1.5} />
           </ActionIcon>
         </Tooltip>
       </Menu.Target>

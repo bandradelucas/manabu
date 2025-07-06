@@ -15,10 +15,11 @@ import { NavigationProgress } from "@mantine/nprogress";
 
 import { ArticleAuthor } from "./ArticleAuthor";
 import { NotionBlockRenderer } from "./NotionBlockRenderer";
+import { Article, NotionBlockWithChildren } from "@/types/notion";
 
 type ArticleShowProps = {
-  article: any;
-  articleBlocks: any;
+  article: Article;
+  articleBlocks: NotionBlockWithChildren[];
 };
 
 export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {

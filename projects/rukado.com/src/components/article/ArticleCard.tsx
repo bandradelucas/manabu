@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import Link from "next/link";
 
-import { Anchor, Box, Card, Flex, Group, Image, Text } from "@mantine/core";
+import { Anchor, Card, Flex, Group, Image, Text } from "@mantine/core";
 import { IconPhotoOff } from "@tabler/icons-react";
 
 import { type Article } from "@/types/notion";

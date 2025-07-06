@@ -17,7 +17,6 @@ import {
   IconBrandGithub,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandTwitter,
   IconBrandYoutube,
 } from "@tabler/icons-react";
 

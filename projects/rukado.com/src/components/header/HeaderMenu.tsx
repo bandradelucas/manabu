@@ -6,14 +6,11 @@ import { usePathname } from "next/navigation";
 
 import {
   Burger,
-  Center,
   Container,
   Group,
-  Menu,
   useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconChevronDown } from "@tabler/icons-react";
 
 import RukadoLogo from "../common/logo/RukadoLogo";
 

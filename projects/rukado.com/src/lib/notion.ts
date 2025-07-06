@@ -6,7 +6,7 @@ import {
   type ListBlockChildrenResponse,
 } from "@notionhq/client";
 
-import { type NotionBlockWithChildren } from "@/types/notion";
+import { type Article, type NotionBlockWithChildren } from "@/types/notion";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -14,7 +14,7 @@ const notion = new Client({
 
 const translatesDatabaseId = process.env.NOTION_TRANSLATES_DATABASE_ID;
 
-export async function getLatestArticles(): Promise<any> {
+export async function getLatestArticles(): Promise<Article[]> {
   const locale = await getLocale();
 
   const articlesResponse = await notion.databases.query({
@@ -52,11 +52,11 @@ export async function getLatestArticles(): Promise<any> {
     page_size: 4,
   });
 
-  return articlesResponse.results;
+  return articlesResponse.results as Article[];
 }
 
 export async function getArticleBySlugAndLocale(slug: string): Promise<{
-  article: DatabaseObjectResponse;
+  article: Article;
   articleBlocks: NotionBlockWithChildren[];
 } | null> {
   const locale = await getLocale();
@@ -85,7 +85,7 @@ export async function getArticleBySlugAndLocale(slug: string): Promise<{
     },
   });
 
-  const article = articlesResponse.results[0] as DatabaseObjectResponse;
+  const article = articlesResponse.results[0] as Article;
   if (!article) return null;
 
   const articleBlocks = await fetchBlocksRecursively(article.id);

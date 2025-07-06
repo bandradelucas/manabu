@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { Button, Menu, Text } from "@mantine/core";
+import { Button, Menu } from "@mantine/core";
 import {
   IconArrowsLeftRight,
   IconGift,

@@ -24,7 +24,7 @@ function _HeaderControl({
     <Tooltip label={tooltip}>
       <UnstyledButton
         className={cx(classes.control, className)}
-        aria-label={label || tooltip}
+        aria-label={label ?? tooltip}
         {...others}
       />
     </Tooltip>

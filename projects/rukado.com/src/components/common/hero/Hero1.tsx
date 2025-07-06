@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 
 import {
-  Box,
   Button,
   Container,
   Grid,
@@ -13,12 +12,12 @@ import {
   Title,
 } from "@mantine/core";
 import { IconChevronDown, IconRocket } from "@tabler/icons-react";
+import posthog from "posthog-js";
 
 import { UserCardImage } from "../cards/UserCardImage";
 import { DonateMenu } from "../donate/DonateMenu";
 
 import classes from "./Hero1.module.css";
-import posthog from "posthog-js";
 
 export const Hero1 = () => {
   const t = useTranslations("homepage");

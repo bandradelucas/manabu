@@ -21,23 +21,46 @@ type NotionBlockHeadingProps = {
     | Heading3BlockObjectResponse;
 };
 
+function getHeadingData(
+  block:
+    | Heading1BlockObjectResponse
+    | Heading2BlockObjectResponse
+    | Heading3BlockObjectResponse,
+): {
+  order: 1 | 2 | 3;
+  rich_text: RichTextItemResponse[];
+  color: string;
+} | null {
+  switch (block.type) {
+    case "heading_1":
+      return {
+        order: 1,
+        rich_text: block.heading_1.rich_text,
+        color: block.heading_1.color ?? "default",
+      };
+    case "heading_2":
+      return {
+        order: 2,
+        rich_text: block.heading_2.rich_text,
+        color: block.heading_2.color ?? "default",
+      };
+    case "heading_3":
+      return {
+        order: 3,
+        rich_text: block.heading_3.rich_text,
+        color: block.heading_3.color ?? "default",
+      };
+    default:
+      return null;
+  }
+}
+
 export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
-  const headingOrderMap: Record<string, 1 | 2 | 3> = {
-    heading_1: 1,
-    heading_2: 2,
-    heading_3: 3,
-  };
+  const headingData = getHeadingData(block);
+  if (!headingData) return null;
 
-  const order = headingOrderMap[block.type];
-  if (!order) return null;
-
-  const headingData = (block as any)[block.type];
-
-  const richText = headingData?.rich_text || [];
-  const color = headingData?.color || "default";
-  const text = richText
-    .map((text: RichTextItemResponse) => text.plain_text)
-    .join(" ");
+  const { order, rich_text, color } = headingData;
+  const text = rich_text.map((item) => item.plain_text).join(" ");
   const slug = generateSlug(text);
 
   return (
@@ -49,7 +72,7 @@ export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
       mt="lg"
       style={{ scrollMarginTop: "1rem" }} // sticky header
     >
-      {<NotionRenderText richText={richText} />}
+      {<NotionRenderText richText={rich_text} />}
     </Title>
   );
 }

@@ -1,5 +1,3 @@
-import { Box, Stack } from "@mantine/core";
-
 import { FooterLinks } from "@/components/footer/FooterLinks";
 import { HeaderMenu } from "@/components/header/HeaderMenu";
 

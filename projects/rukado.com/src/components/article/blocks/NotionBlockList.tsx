@@ -36,7 +36,7 @@ export function NotionBlockList({ block }: NotionBlockListProps) {
     ? block.bulleted_list_item?.rich_text
     : block.numbered_list_item?.rich_text;
 
-  const children = block.children || [];
+  const children = block.children ?? [];
 
   return (
     <List type={isNumbered ? "ordered" : "unordered"} style={{ marginTop: 4 }}>
