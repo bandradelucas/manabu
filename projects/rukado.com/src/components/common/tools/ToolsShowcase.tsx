@@ -1,5 +1,16 @@
-"use client";
+'use client';
 
+import {
+  IconBuildingBank,
+  IconCashBanknote,
+  IconCoin,
+  IconCreditCard,
+  IconReceipt,
+  IconReceiptRefund,
+  IconReceiptTax,
+  IconRepeat,
+  IconReport,
+} from '@tabler/icons-react';
 import {
   Anchor,
   Card,
@@ -12,31 +23,19 @@ import {
   Title,
   UnstyledButton,
   useMantineTheme,
-} from "@mantine/core";
-import {
-  IconBuildingBank,
-  IconCashBanknote,
-  IconCoin,
-  IconCreditCard,
-  IconReceipt,
-  IconReceiptRefund,
-  IconReceiptTax,
-  IconRepeat,
-  IconReport,
-} from "@tabler/icons-react";
-
-import classes from "./ToolsShowcase.module.css";
+} from '@mantine/core';
+import classes from './ToolsShowcase.module.css';
 
 const mockdata = [
-  { title: "Credit cards", icon: IconCreditCard, color: "violet" },
-  { title: "Banks nearby", icon: IconBuildingBank, color: "indigo" },
-  { title: "Transfers", icon: IconRepeat, color: "blue" },
-  { title: "Refunds", icon: IconReceiptRefund, color: "green" },
-  { title: "Receipts", icon: IconReceipt, color: "teal" },
-  { title: "Taxes", icon: IconReceiptTax, color: "cyan" },
-  { title: "Reports", icon: IconReport, color: "pink" },
-  { title: "Payments", icon: IconCoin, color: "red" },
-  { title: "Cashback", icon: IconCashBanknote, color: "orange" },
+  { title: 'Credit cards', icon: IconCreditCard, color: 'violet' },
+  { title: 'Banks nearby', icon: IconBuildingBank, color: 'indigo' },
+  { title: 'Transfers', icon: IconRepeat, color: 'blue' },
+  { title: 'Refunds', icon: IconReceiptRefund, color: 'green' },
+  { title: 'Receipts', icon: IconReceipt, color: 'teal' },
+  { title: 'Taxes', icon: IconReceiptTax, color: 'cyan' },
+  { title: 'Reports', icon: IconReport, color: 'pink' },
+  { title: 'Payments', icon: IconCoin, color: 'red' },
+  { title: 'Cashback', icon: IconCashBanknote, color: 'orange' },
 ];
 
 export function ToolsShowcase() {

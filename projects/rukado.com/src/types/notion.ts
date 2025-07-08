@@ -2,7 +2,7 @@ import {
   type BlockObjectResponse,
   type DatabaseObjectResponse,
   type RichTextItemResponse,
-} from "@notionhq/client";
+} from '@notionhq/client';
 
 export type NotionBlockWithChildren = BlockObjectResponse & {
   children?: NotionBlockWithChildren[];
@@ -12,79 +12,79 @@ export type Article = DatabaseObjectResponse & {
   properties: {
     Article: {
       id: string;
-      type: "relation";
+      type: 'relation';
       relation: Array<{
         id: string;
       }>;
     };
     Language: {
       id: string;
-      type: "relation";
+      type: 'relation';
       relation: Array<{
         id: string;
       }>;
     };
     Slug: {
       id: string;
-      type: "rich_text";
+      type: 'rich_text';
       rich_text: Array<RichTextItemResponse>;
     };
-    "Last edited time": {
+    'Last edited time': {
       id: string;
-      type: "last_edited_time";
+      type: 'last_edited_time';
       last_edited_time: string;
     };
-    "Language Code": {
+    'Language Code': {
       id: string;
-      type: "rollup";
+      type: 'rollup';
       rollup: {
-        type: "array";
+        type: 'array';
         array: Array<{
-          type: "rich_text";
+          type: 'rich_text';
           rich_text: Array<RichTextItemResponse>;
         }>;
-        function: "show_original";
+        function: 'show_original';
       };
     };
-    "Publish Date": {
+    'Publish Date': {
       id: string;
-      type: "rollup";
+      type: 'rollup';
       rollup: {
-        type: "array";
+        type: 'array';
         array: Array<{
-          type: "date";
+          type: 'date';
           date: {
             start: string;
             end: string | null;
             time_zone: string | null;
           };
         }>;
-        function: "show_original";
+        function: 'show_original';
       };
     };
-    "Created time": {
+    'Created time': {
       id: string;
-      type: "created_time";
+      type: 'created_time';
       created_time: string;
     };
-    "Is Published": {
+    'Is Published': {
       id: string;
-      type: "rollup";
+      type: 'rollup';
       rollup: {
-        type: "array";
+        type: 'array';
         array: Array<{
-          type: "formula";
+          type: 'formula';
           formula: {
-            type: "boolean";
+            type: 'boolean';
             boolean: boolean | null;
           };
-          function: "show_original";
+          function: 'show_original';
         }>;
       };
     };
     Title: {
       id: string;
-      type: "title";
+      type: 'title';
       title: Array<RichTextItemResponse>;
     };
   };

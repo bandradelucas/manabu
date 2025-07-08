@@ -1,23 +1,17 @@
-import {
-  type BoxProps,
-  createPolymorphicComponent,
-  Tooltip,
-  UnstyledButton,
-} from "@mantine/core";
-import cx from "clsx";
-
-import classes from "./HeaderControl.module.css";
+import cx from 'clsx';
+import { createPolymorphicComponent, Tooltip, UnstyledButton, type BoxProps } from '@mantine/core';
+import classes from './HeaderControl.module.css';
 
 export interface HeaderControlProps extends BoxProps {
   tooltip: string;
-  "aria-label"?: string;
+  'aria-label'?: string;
   children: React.ReactNode;
 }
 
 function _HeaderControl({
   tooltip,
   className,
-  "aria-label": label,
+  'aria-label': label,
   ...others
 }: HeaderControlProps) {
   return (
@@ -31,7 +25,6 @@ function _HeaderControl({
   );
 }
 
-export const HeaderControl = createPolymorphicComponent<
-  "button",
-  HeaderControlProps
->(_HeaderControl);
+export const HeaderControl = createPolymorphicComponent<'button', HeaderControlProps>(
+  _HeaderControl
+);

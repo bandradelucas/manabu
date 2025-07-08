@@ -1,12 +1,10 @@
-import { getLocale } from "next-intl/server";
-
 import {
   Client,
   type DatabaseObjectResponse,
   type ListBlockChildrenResponse,
-} from "@notionhq/client";
-
-import { type Article, type NotionBlockWithChildren } from "@/types/notion";
+} from '@notionhq/client';
+import { getLocale } from 'next-intl/server';
+import { type Article, type NotionBlockWithChildren } from '@/types/notion';
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -22,7 +20,7 @@ export async function getLatestArticles(): Promise<Article[]> {
     filter: {
       and: [
         {
-          property: "Language Code",
+          property: 'Language Code',
           rollup: {
             any: {
               rich_text: {
@@ -32,7 +30,7 @@ export async function getLatestArticles(): Promise<Article[]> {
           },
         },
         {
-          property: "Is Published",
+          property: 'Is Published',
           rollup: {
             any: {
               checkbox: {
@@ -45,8 +43,8 @@ export async function getLatestArticles(): Promise<Article[]> {
     },
     sorts: [
       {
-        property: "Publish Date",
-        direction: "descending",
+        property: 'Publish Date',
+        direction: 'descending',
       },
     ],
     page_size: 4,
@@ -66,13 +64,13 @@ export async function getArticleBySlugAndLocale(slug: string): Promise<{
     filter: {
       and: [
         {
-          property: "Slug",
+          property: 'Slug',
           rich_text: {
             equals: slug,
           },
         },
         {
-          property: "Language Code",
+          property: 'Language Code',
           rollup: {
             any: {
               rich_text: {
@@ -96,19 +94,16 @@ export async function getArticleBySlugAndLocale(slug: string): Promise<{
   };
 }
 
-async function fetchBlocksRecursively(
-  blockId: string,
-): Promise<NotionBlockWithChildren[]> {
+async function fetchBlocksRecursively(blockId: string): Promise<NotionBlockWithChildren[]> {
   const blocks: NotionBlockWithChildren[] = [];
   let cursor: string | undefined = undefined;
 
   do {
-    const response: ListBlockChildrenResponse =
-      await notion.blocks.children.list({
-        block_id: blockId,
-        start_cursor: cursor,
-        page_size: 100,
-      });
+    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
+      block_id: blockId,
+      start_cursor: cursor,
+      page_size: 100,
+    });
 
     for (const block of response.results as NotionBlockWithChildren[]) {
       if (block.has_children) {

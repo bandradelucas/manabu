@@ -1,14 +1,12 @@
-"use client";
+'use client';
 
-import React from "react";
-
-import { List, ListItem } from "@mantine/core";
+import React from 'react';
 import {
   type BulletedListItemBlockObjectResponse,
   type NumberedListItemBlockObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
-
-import { NotionRenderText } from "./NotionRenderText";
+} from '@notionhq/client/build/src/api-endpoints';
+import { List, ListItem } from '@mantine/core';
+import { NotionRenderText } from './NotionRenderText';
 
 type NotionBlockListProps = {
   block:
@@ -16,19 +14,17 @@ type NotionBlockListProps = {
     | NumberedListItemBlockWithChildrenObjectResponse;
 };
 
-type BulletedListItemBlockWithChildrenObjectResponse =
-  BulletedListItemBlockObjectResponse & {
-    children?: BulletedListItemBlockWithChildrenObjectResponse[];
-  };
+type BulletedListItemBlockWithChildrenObjectResponse = BulletedListItemBlockObjectResponse & {
+  children?: BulletedListItemBlockWithChildrenObjectResponse[];
+};
 
-type NumberedListItemBlockWithChildrenObjectResponse =
-  NumberedListItemBlockObjectResponse & {
-    children?: NumberedListItemBlockWithChildrenObjectResponse[];
-  };
+type NumberedListItemBlockWithChildrenObjectResponse = NumberedListItemBlockObjectResponse & {
+  children?: NumberedListItemBlockWithChildrenObjectResponse[];
+};
 
 export function NotionBlockList({ block }: NotionBlockListProps) {
-  const isBulleted = block.type === "bulleted_list_item";
-  const isNumbered = block.type === "numbered_list_item";
+  const isBulleted = block.type === 'bulleted_list_item';
+  const isNumbered = block.type === 'numbered_list_item';
 
   if (!isBulleted && !isNumbered) return null;
 
@@ -39,7 +35,7 @@ export function NotionBlockList({ block }: NotionBlockListProps) {
   const children = block.children ?? [];
 
   return (
-    <List type={isNumbered ? "ordered" : "unordered"} style={{ marginTop: 4 }}>
+    <List type={isNumbered ? 'ordered' : 'unordered'} style={{ marginTop: 4 }}>
       <ListItem>
         <NotionRenderText richText={richText} />
         {children.length > 0 && (

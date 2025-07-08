@@ -1,13 +1,8 @@
-import { notFound } from "next/navigation";
+import { notFound } from 'next/navigation';
+import { ArticleShow } from '@/components/article/ArticleShow';
+import { getArticleBySlugAndLocale } from '@/lib/notion';
 
-import { ArticleShow } from "@/components/article/ArticleShow";
-import { getArticleBySlugAndLocale } from "@/lib/notion";
-
-export default async function ArticleShowPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function ArticleShowPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const articleResponse = await getArticleBySlugAndLocale(slug);
   if (!articleResponse) {

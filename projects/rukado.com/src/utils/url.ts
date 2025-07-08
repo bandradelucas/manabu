@@ -14,7 +14,7 @@ export function isRelativeUrl(url: string): boolean {
  * Retorna a base do site.
  */
 export function getSiteBaseUrl(): string {
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     return window.location.origin;
   }
 
@@ -23,7 +23,7 @@ export function getSiteBaseUrl(): string {
   }
 
   // fallback
-  return "http://localhost:3000";
+  return 'http://localhost:3000';
 }
 
 /**
@@ -34,11 +34,11 @@ export function getAbsoluteUrl(url: string): string {
   if (!isRelativeUrl(url)) return url;
 
   const base = getSiteBaseUrl();
-  return `${base.replace(/\/$/, "")}/${url.replace(/^\//, "")}`;
+  return `${base.replace(/\/$/, '')}/${url.replace(/^\//, '')}`;
 }
 
 export function getLocalizedUrl(url: string, locale: string): string {
-  const cleanUrl = url.replace(/^\//, "");
+  const cleanUrl = url.replace(/^\//, '');
   const localizedPath = `/${locale}/${cleanUrl}`;
 
   return getAbsoluteUrl(localizedPath);
@@ -48,28 +48,28 @@ export function getLocalizedUrl(url: string, locale: string): string {
  * Remove múltiplas barras e normaliza a URL.
  */
 export function normalizeUrl(url: string): string {
-  return url.replace(/([^:]\/)\/+/g, "$1");
+  return url.replace(/([^:]\/)\/+/g, '$1');
 }
 
 export function getExternalLinkWithUTM(
   baseUrl: string,
   {
-    source = "rukado.com",
-    medium = "website",
-    campaign = "outbound",
+    source = 'rukado.com',
+    medium = 'website',
+    campaign = 'outbound',
     extraParams = {},
   }: {
     source?: string;
     medium?: string;
     campaign?: string;
     extraParams?: Record<string, string>;
-  } = {},
+  } = {}
 ): string {
   const url = new URL(baseUrl);
 
-  url.searchParams.set("utm_source", source);
-  url.searchParams.set("utm_medium", medium);
-  url.searchParams.set("utm_campaign", campaign);
+  url.searchParams.set('utm_source', source);
+  url.searchParams.set('utm_medium', medium);
+  url.searchParams.set('utm_campaign', campaign);
 
   for (const [key, value] of Object.entries(extraParams)) {
     url.searchParams.set(key, value);

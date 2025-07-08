@@ -1,16 +1,13 @@
-import React from "react";
-
-import { type RichTextItemResponse } from "@notionhq/client";
+import React from 'react';
+import { type RichTextItemResponse } from '@notionhq/client';
 
 type NotionRenderTextProps = {
   richText: RichTextItemResponse[];
 };
 
-export function NotionRenderText({
-  richText,
-}: NotionRenderTextProps): React.ReactNode {
+export function NotionRenderText({ richText }: NotionRenderTextProps): React.ReactNode {
   return richText.map((textObj, index) => {
-    if (textObj.type !== "text") return null;
+    if (textObj.type !== 'text') return null;
 
     const { annotations, plain_text, text } = textObj;
     let element = <>{plain_text}</>;
@@ -37,12 +34,7 @@ export function NotionRenderText({
 
     if (text.link?.url) {
       element = (
-        <a
-          key={index}
-          href={text.link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a key={index} href={text.link.url} target="_blank" rel="noopener noreferrer">
           {element}
         </a>
       );

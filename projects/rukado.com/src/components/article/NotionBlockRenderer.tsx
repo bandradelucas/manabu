@@ -1,5 +1,4 @@
-import React from "react";
-
+import React from 'react';
 import {
   type BulletedListItemBlockObjectResponse,
   type CodeBlockObjectResponse,
@@ -12,20 +11,18 @@ import {
   type ParagraphBlockObjectResponse,
   type TableBlockObjectResponse,
   type ToDoBlockObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+} from '@notionhq/client/build/src/api-endpoints';
+import { type NotionBlockWithChildren } from '@/types/notion';
+import { NotionBlockCode } from './blocks/NotionBlockCode';
+import { NotionBlockDivider } from './blocks/NotionBlockDivider';
+import { NotionBlockHeading } from './blocks/NotionBlockHeading';
+import { NotionBlockImage } from './blocks/NotionBlockImage';
+import { NotionBlockList } from './blocks/NotionBlockList';
+import { NotionBlockParagraph } from './blocks/NotionBlockParagraph';
+import { NotionBlockTable } from './blocks/NotionBlockTable';
+import { NotionBlockTodo } from './blocks/NotionBlockTodo';
 
-import { type NotionBlockWithChildren } from "@/types/notion";
-
-import { NotionBlockCode } from "./blocks/NotionBlockCode";
-import { NotionBlockDivider } from "./blocks/NotionBlockDivider";
-import { NotionBlockHeading } from "./blocks/NotionBlockHeading";
-import { NotionBlockImage } from "./blocks/NotionBlockImage";
-import { NotionBlockList } from "./blocks/NotionBlockList";
-import { NotionBlockParagraph } from "./blocks/NotionBlockParagraph";
-import { NotionBlockTable } from "./blocks/NotionBlockTable";
-import { NotionBlockTodo } from "./blocks/NotionBlockTodo";
-
-import "@mantine/code-highlight/styles.css";
+import '@mantine/code-highlight/styles.css';
 
 type BlockTypeMap = {
   paragraph: ParagraphBlockObjectResponse;
@@ -68,9 +65,7 @@ export function NotionBlockRenderer({ blocks }: NotionBlockRendererProps) {
         const blockRender = (blockRenderers as any)[block.type];
 
         if (blockRender) {
-          return (
-            <React.Fragment key={block.id}>{blockRender(block)}</React.Fragment>
-          );
+          return <React.Fragment key={block.id}>{blockRender(block)}</React.Fragment>;
         }
 
         console.warn(`No renderer for block type: ${block.type}`);

@@ -1,10 +1,8 @@
-"use client";
+'use client';
 
-import { Grid } from "@mantine/core";
-
-import { type Article } from "@/types/notion";
-
-import { ArticleCard } from "./ArticleCard";
+import { Grid } from '@mantine/core';
+import { type Article } from '@/types/notion';
+import { ArticleCard } from './ArticleCard';
 
 type ArticleGridProps = {
   articles: Article[];

@@ -1,23 +1,15 @@
-"use client";
+'use client';
 
-import { useLocale } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-import {
-  Burger,
-  Container,
-  Group,
-  useMantineTheme,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-
-import RukadoLogo from "../common/logo/RukadoLogo";
-
-import classes from "./HeaderMenu.module.css";
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { Burger, Container, Group, useMantineTheme } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import RukadoLogo from '../common/logo/RukadoLogo';
+import classes from './HeaderMenu.module.css';
 
 const items = [
-  { url: "/articles", label: "Articles" },
+  { url: '/articles', label: 'Articles' },
   // {
   //   link: "#1",
   //   label: "Learn",
@@ -35,7 +27,7 @@ export function HeaderMenu() {
   const locale = useLocale();
   const [opened, { toggle }] = useDisclosure(false);
 
-  const cleanPathname = pathname.replace(`/${locale}`, "") || "/";
+  const cleanPathname = pathname.replace(`/${locale}`, '') || '/';
 
   const menuItems = items.map((item) => {
     // const isActive = cleanPathname === item.url;

@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
+import type { NextConfig } from 'next';
 import bundleAnalyzer from '@next/bundle-analyzer';
+import createNextIntlPlugin from 'next-intl/plugin';
 
 // const nextConfig: NextConfig = {
 //   /* config options here */
@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
-}
+};
 
 const withNextIntl = createNextIntlPlugin();
 export default withBundleAnalyzer(withNextIntl(nextConfig));

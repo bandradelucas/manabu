@@ -1,7 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
-
-import { Anchor, Flex, Text } from "@mantine/core";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Anchor, Flex, Text } from '@mantine/core';
 
 export default function RukadoLogo({ size = 128 }: { size?: number }) {
   return (

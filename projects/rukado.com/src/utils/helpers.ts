@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * Embaralha o array com Fisher-Yates.
@@ -25,7 +25,7 @@ export const splitIntoChunks = <T>(array: T[], chunkCount: number): T[][] => {
 export const generateSlug = (text: string): string => {
   return text
     .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w\-]/g, "")
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]/g, '')
     .trim();
 };

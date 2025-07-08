@@ -1,21 +1,12 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { useLocale } from "next-intl";
-
-import {
-  Box,
-  Container,
-  Grid,
-  TableOfContents,
-  Text,
-  Title,
-} from "@mantine/core";
-import { NavigationProgress } from "@mantine/nprogress";
-
-import { ArticleAuthor } from "./ArticleAuthor";
-import { NotionBlockRenderer } from "./NotionBlockRenderer";
-import { Article, NotionBlockWithChildren } from "@/types/notion";
+import { useEffect, useRef, useState } from 'react';
+import { useLocale } from 'next-intl';
+import { Box, Container, Grid, TableOfContents, Text, Title } from '@mantine/core';
+import { NavigationProgress } from '@mantine/nprogress';
+import { Article, NotionBlockWithChildren } from '@/types/notion';
+import { ArticleAuthor } from './ArticleAuthor';
+import { NotionBlockRenderer } from './NotionBlockRenderer';
 
 type ArticleShowProps = {
   article: Article;
@@ -44,11 +35,11 @@ export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {
       setProgress(clampedProgress);
     }
 
-    window.addEventListener("scroll", updateProgress);
+    window.addEventListener('scroll', updateProgress);
     updateProgress();
 
     return () => {
-      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener('scroll', updateProgress);
     };
   }, []);
 
@@ -61,10 +52,10 @@ export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {
             <Box pos="sticky" top={100}>
               <TableOfContents
                 scrollSpyOptions={{
-                  selector: "h1[id], h2[id], h3[id]",
+                  selector: 'h1[id], h2[id], h3[id]',
                 }}
                 getControlProps={({ data, active }) => ({
-                  component: "a",
+                  component: 'a',
                   href: `#${data.id}`,
                   style: {
                     marginLeft: (data.depth - 1) * 8,
@@ -84,9 +75,9 @@ export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {
             </Title>
             <Text c="dimmed" ta="center" mt="md">
               {new Intl.DateTimeFormat(locale, {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
               }).format(new Date(article.created_time))}
             </Text>
             <Box ref={targetRef}>

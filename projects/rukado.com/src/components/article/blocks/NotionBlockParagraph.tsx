@@ -1,5 +1,5 @@
-import { Code, Text } from "@mantine/core";
-import { type ParagraphBlockObjectResponse } from "@notionhq/client";
+import { type ParagraphBlockObjectResponse } from '@notionhq/client';
+import { Code, Text } from '@mantine/core';
 
 type NotionBlockParagraphProps = {
   block: ParagraphBlockObjectResponse;

@@ -1,15 +1,10 @@
-import { useTranslations } from "next-intl";
-
-import { Avatar, Box, Group, Text } from "@mantine/core";
-import {
-  IconAt,
-  IconBrandGithub,
-} from "@tabler/icons-react";
-
-import { getExternalLinkWithUTM } from "@/utils/url";
+import { IconAt, IconBrandGithub } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
+import { Avatar, Box, Group, Text } from '@mantine/core';
+import { getExternalLinkWithUTM } from '@/utils/url';
 
 export function ArticleAuthor() {
-  const t = useTranslations("about");
+  const t = useTranslations('about');
 
   return (
     <Group wrap="nowrap" mt="2rem">
@@ -34,7 +29,7 @@ export function ArticleAuthor() {
             rel="noopener noreferrer"
             aria-label="Send email to bandradelucas@gmail.com"
           >
-            {t("software_engineer")}
+            {t('software_engineer')}
           </Text>
         </Group>
 
@@ -44,7 +39,7 @@ export function ArticleAuthor() {
             fz="xs"
             c="dimmed"
             component="a"
-            href={getExternalLinkWithUTM("https://github.com/bandradelucas")}
+            href={getExternalLinkWithUTM('https://github.com/bandradelucas')}
             target="_blank"
             rel="noopener noreferrer"
           >

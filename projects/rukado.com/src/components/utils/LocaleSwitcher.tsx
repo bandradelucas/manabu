@@ -1,14 +1,12 @@
-import { useTransition } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-
-import { Select } from "@mantine/core";
-
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { useTransition } from 'react';
+import { useParams } from 'next/navigation';
+import { useLocale, useTranslations } from 'next-intl';
+import { Select } from '@mantine/core';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { routing } from '@/i18n/routing';
 
 export default function LocaleSwitcher() {
-  const t = useTranslations("LocaleSwitcher");
+  const t = useTranslations('LocaleSwitcher');
   const currentLocale = useLocale();
   const locales = routing.locales.map((locale) => ({
     value: locale,

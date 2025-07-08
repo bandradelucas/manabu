@@ -1,4 +1,3 @@
-import { ActionIcon, CopyButton, Menu, Tooltip } from "@mantine/core";
 import {
   IconBrandFacebook,
   IconBrandTelegram,
@@ -6,7 +5,8 @@ import {
   IconBrandX,
   IconLink,
   IconShare,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
+import { ActionIcon, CopyButton, Menu, Tooltip } from '@mantine/core';
 
 type ShareMenuProps = {
   url: string;
@@ -15,7 +15,7 @@ type ShareMenuProps = {
 
 export default function ShareMenu({ url, title }: ShareMenuProps) {
   const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title ?? "");
+  const encodedTitle = encodeURIComponent(title ?? '');
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
@@ -25,9 +25,9 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
   };
 
   const canUseWebShare =
-    typeof window !== "undefined" &&
-    typeof navigator !== "undefined" &&
-    typeof navigator.share === "function";
+    typeof window !== 'undefined' &&
+    typeof navigator !== 'undefined' &&
+    typeof navigator.share === 'function';
 
   const handleNativeShare = async () => {
     try {
@@ -36,7 +36,7 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
         url: url,
       });
     } catch (error) {
-      console.error("Erro ao compartilhar:", error);
+      console.error('Erro ao compartilhar:', error);
     }
   };
 
@@ -91,16 +91,13 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
         <CopyButton value={url} timeout={2000}>
           {({ copied, copy }) => (
             <Menu.Item onClick={copy} leftSection={<IconLink size={16} />}>
-              {copied ? "Link copiado!" : "Copiar link"}
+              {copied ? 'Link copiado!' : 'Copiar link'}
             </Menu.Item>
           )}
         </CopyButton>
 
         {canUseWebShare && (
-          <Menu.Item
-            onClick={handleNativeShare}
-            leftSection={<IconShare size={16} />}
-          >
+          <Menu.Item onClick={handleNativeShare} leftSection={<IconShare size={16} />}>
             Compartilhar
           </Menu.Item>
         )}

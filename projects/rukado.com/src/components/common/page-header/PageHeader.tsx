@@ -1,4 +1,4 @@
-import { Box, Title } from "@mantine/core";
+import { Box, Title } from '@mantine/core';
 
 type PageHeaderProps = {
   title: string;

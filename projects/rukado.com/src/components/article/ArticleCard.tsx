@@ -1,17 +1,13 @@
-"use client";
+'use client';
 
-import { useLocale } from "next-intl";
-import Link from "next/link";
-
-import { Anchor, Card, Flex, Group, Image, Text } from "@mantine/core";
-import { IconPhotoOff } from "@tabler/icons-react";
-
-import { type Article } from "@/types/notion";
-import { getLocalizedUrl } from "@/utils/url";
-
-import ShareMenu from "./ShareMenu";
-
-import classes from "./ArticleCard.module.css";
+import Link from 'next/link';
+import { IconPhotoOff } from '@tabler/icons-react';
+import { useLocale } from 'next-intl';
+import { Anchor, Card, Flex, Group, Image, Text } from '@mantine/core';
+import { type Article } from '@/types/notion';
+import { getLocalizedUrl } from '@/utils/url';
+import ShareMenu from './ShareMenu';
+import classes from './ArticleCard.module.css';
 
 type ArticleCardProps = {
   article: Article;
@@ -19,7 +15,7 @@ type ArticleCardProps = {
 
 export function ArticleCard({ article }: ArticleCardProps) {
   const locale = useLocale();
-  const articleCover = article.cover?.type === "file" ? article.cover : null;
+  const articleCover = article.cover?.type === 'file' ? article.cover : null;
 
   return (
     <Card withBorder padding="lg" radius="md" className={classes.card}>
@@ -90,7 +86,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
             <ShareMenu
               url={getLocalizedUrl(
                 `/articles/${article.properties.Slug.rich_text[0].plain_text}`,
-                locale,
+                locale
               )}
               title={article.properties.Title.title[0].plain_text}
             />
