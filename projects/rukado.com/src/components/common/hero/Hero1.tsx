@@ -2,7 +2,6 @@
 
 import { IconChevronDown, IconRocket } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import posthog from 'posthog-js';
 import { Button, Container, Grid, Group, Stack, Text, Title } from '@mantine/core';
 import { UserCardImage } from '../cards/UserCardImage';
 import { DonateMenu } from '../donate/DonateMenu';
@@ -10,10 +9,6 @@ import classes from './Hero1.module.css';
 
 export const Hero1 = () => {
   const t = useTranslations('homepage');
-
-  const venti = () => {
-    posthog.capture('my event', { property: 'value' });
-  };
 
   return (
     <Container py={60}>
