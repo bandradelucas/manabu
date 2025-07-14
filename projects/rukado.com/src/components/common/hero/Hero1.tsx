@@ -12,7 +12,6 @@ export const Hero1 = () => {
 
   return (
     <Container py={60}>
-      <Button onClick={venti}>asd</Button>
       <Grid gutter={40} align="center">
         <Grid.Col span={{ base: 12, md: 7 }}>
           <Stack gap="xl">
