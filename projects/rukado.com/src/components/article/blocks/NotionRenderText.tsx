@@ -7,7 +7,9 @@ type NotionRenderTextProps = {
 
 export function NotionRenderText({ richText }: NotionRenderTextProps): React.ReactNode {
   return richText.map((textObj, index) => {
-    if (textObj.type !== 'text') return null;
+    if (textObj.type !== 'text') {
+      return null;
+    }
 
     const { annotations, plain_text, text } = textObj;
     let element = <>{plain_text}</>;

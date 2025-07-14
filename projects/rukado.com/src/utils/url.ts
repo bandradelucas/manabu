@@ -30,8 +30,13 @@ export function getSiteBaseUrl(): string {
  * Constrói uma URL absoluta a partir de uma URL relativa.
  */
 export function getAbsoluteUrl(url: string): string {
-  if (!url) return getSiteBaseUrl();
-  if (!isRelativeUrl(url)) return url;
+  if (!url) {
+    return getSiteBaseUrl();
+  }
+
+  if (!isRelativeUrl(url)) {
+    return url;
+  }
 
   const base = getSiteBaseUrl();
   return `${base.replace(/\/$/, '')}/${url.replace(/^\//, '')}`;

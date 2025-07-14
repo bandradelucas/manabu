@@ -14,7 +14,9 @@ type ToDoBlockWithChildrenObjectResponse = ToDoBlockObjectResponse & {
 };
 
 export function NotionBlockTodo({ block }: NotionBlockTodoProps) {
-  if (block.type !== 'to_do') return null;
+  if (block.type !== 'to_do') {
+    return null;
+  }
 
   const { to_do, children = [] } = block;
 

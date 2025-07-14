@@ -8,7 +8,9 @@ interface NotionBlockDividerProps {
 }
 
 export function NotionBlockDivider({ block }: NotionBlockDividerProps) {
-  if (block.type !== 'divider') return null;
+  if (block.type !== 'divider') {
+    return null;
+  }
 
   return <Divider my="md" />;
 }

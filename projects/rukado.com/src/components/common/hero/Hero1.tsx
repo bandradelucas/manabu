@@ -12,9 +12,7 @@ export const Hero1 = () => {
   const t = useTranslations('homepage');
 
   const venti = () => {
-    console.log('kkk');
     posthog.capture('my event', { property: 'value' });
-    console.log('foi');
   };
 
   return (

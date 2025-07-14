@@ -48,7 +48,7 @@ function getHeadingData(
 
 export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
   const headingData = getHeadingData(block);
-  if (!headingData) return null;
+  if (!headingData) {return null;}
 
   const { order, rich_text, color } = headingData;
   const text = rich_text.map((item) => item.plain_text).join(' ');
@@ -63,7 +63,7 @@ export function NotionBlockHeading({ block }: NotionBlockHeadingProps) {
       mt="lg"
       style={{ scrollMarginTop: '1rem' }} // sticky header
     >
-      {<NotionRenderText richText={rich_text} />}
+      <NotionRenderText richText={rich_text} />
     </Title>
   );
 }

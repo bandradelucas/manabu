@@ -26,7 +26,9 @@ export function NotionBlockList({ block }: NotionBlockListProps) {
   const isBulleted = block.type === 'bulleted_list_item';
   const isNumbered = block.type === 'numbered_list_item';
 
-  if (!isBulleted && !isNumbered) return null;
+  if (!isBulleted && !isNumbered) {
+    return null;
+  }
 
   const richText = isBulleted
     ? block.bulleted_list_item?.rich_text

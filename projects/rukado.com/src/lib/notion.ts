@@ -1,6 +1,5 @@
 import {
   Client,
-  type DatabaseObjectResponse,
   type ListBlockChildrenResponse,
 } from '@notionhq/client';
 import { getLocale } from 'next-intl/server';
@@ -84,13 +83,15 @@ export async function getArticleBySlugAndLocale(slug: string): Promise<{
   });
 
   const article = articlesResponse.results[0] as Article;
-  if (!article) return null;
+  if (!article) {
+    return null;
+  }
 
   const articleBlocks = await fetchBlocksRecursively(article.id);
 
   return {
     article,
-    articleBlocks: articleBlocks,
+    articleBlocks,
   };
 }
 

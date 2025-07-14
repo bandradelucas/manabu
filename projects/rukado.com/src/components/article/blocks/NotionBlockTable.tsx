@@ -17,12 +17,16 @@ type TableBlockWithChildrenObjectResponse = TableBlockObjectResponse & {
 };
 
 export function NotionBlockTable({ block }: NotionBlockTableProps) {
-  if (block.type !== 'table' || !block.children) return null;
+  if (block.type !== 'table' || !block.children) {
+    return null;
+  }
 
   const { has_column_header, has_row_header } = block.table;
   const rows = block.children.filter((child) => child.type === 'table_row');
 
-  if (rows.length === 0) return null;
+  if (rows.length === 0) {
+    return null;
+  }
 
   const renderCellContent = (cell: RichTextItemResponse[]) =>
     cell.map((text, i) => <NotionRenderText key={i} richText={[text]} />);

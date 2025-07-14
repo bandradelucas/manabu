@@ -10,7 +10,7 @@ export default function LocaleSwitcher() {
   const currentLocale = useLocale();
   const locales = routing.locales.map((locale) => ({
     value: locale,
-    label: t(`locales.${locale}`, { locale: locale }),
+    label: t(`locales.${locale}`, { locale }),
   }));
 
   const router = useRouter();
@@ -25,26 +25,17 @@ export default function LocaleSwitcher() {
       // are used in combination with a given `pathname`. Since the two will
       // always match for the current route, we can skip runtime checks.
       { pathname, params },
-      { locale: locale }
+      { locale }
     );
   };
 
   return (
-    <>
-      <Select
-        defaultValue={currentLocale}
-        data={locales}
-        onChange={switchLocale}
-        allowDeselect={false}
-        disabled={isPending}
-      ></Select>
-    </>
+    <Select
+      defaultValue={currentLocale}
+      data={locales}
+      onChange={switchLocale}
+      allowDeselect={false}
+      disabled={isPending}
+    />
   );
-  // <Select defaultValue={locale} label={t("label")}>
-  //   {routing.locales.map((cur) => (
-  //     <option key={cur} value={cur}>
-  //       {t("locale", { locale: cur })}
-  //     </option>
-  //   ))}
-  // </Select>
 }

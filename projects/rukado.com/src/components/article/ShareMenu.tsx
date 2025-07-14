@@ -33,10 +33,10 @@ export default function ShareMenu({ url, title }: ShareMenuProps) {
     try {
       await navigator.share({
         title,
-        url: url,
+        url,
       });
     } catch (error) {
-      console.error('Erro ao compartilhar:', error);
+      // console.error('Erro ao compartilhar:', error);
     }
   };
 

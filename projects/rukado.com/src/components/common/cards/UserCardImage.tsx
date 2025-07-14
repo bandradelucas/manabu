@@ -3,11 +3,11 @@ import { useTranslations } from 'next-intl';
 import { Avatar, Button, Card, Space, Text } from '@mantine/core';
 import { getExternalLinkWithUTM } from '@/utils/url';
 
-const stats = [
-  { value: '34K', label: 'Followers' },
-  { value: '187', label: 'Follows' },
-  { value: '1.6K', label: 'Posts' },
-];
+// const stats = [
+//   { value: '34K', label: 'Followers' },
+//   { value: '187', label: 'Follows' },
+//   { value: '1.6K', label: 'Posts' },
+// ];
 
 export function UserCardImage() {
   const t = useTranslations('about');

@@ -21,7 +21,9 @@ export function ArticleShow({ article, articleBlocks }: ArticleShowProps) {
   useEffect(() => {
     function updateProgress() {
       const el = targetRef.current;
-      if (!el) return;
+      if (!el) {
+        return;
+      }
 
       const { top, height } = el.getBoundingClientRect();
       const viewportHeight = window.innerHeight;

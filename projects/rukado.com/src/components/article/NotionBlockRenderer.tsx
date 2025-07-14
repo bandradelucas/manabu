@@ -68,7 +68,7 @@ export function NotionBlockRenderer({ blocks }: NotionBlockRendererProps) {
           return <React.Fragment key={block.id}>{blockRender(block)}</React.Fragment>;
         }
 
-        console.warn(`No renderer for block type: ${block.type}`);
+        // console.warn(`No renderer for block type: ${block.type}`);
         return null;
       })}
     </>
