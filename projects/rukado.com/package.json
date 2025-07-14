@@ -24,15 +24,20 @@
     "@mantine/hooks": "^8.1.3",
     "@mantine/nprogress": "^8.1.3",
     "@next/bundle-analyzer": "^15.3.5",
+    "@next/third-parties": "^15.3.5",
     "@notionhq/client": "^3.1.3",
+    "@t3-oss/env-nextjs": "^0.13.8",
     "@tabler/icons-react": "^3.34.0",
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "next": "15.3.4",
     "next-intl": "^4.3.4",
     "notion-client": "^7.4.2",
+    "posthog-js": "^1.257.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "shiki": "^3.7.0"
+    "shiki": "^3.7.0",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

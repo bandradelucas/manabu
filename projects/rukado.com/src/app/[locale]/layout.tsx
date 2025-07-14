@@ -16,6 +16,7 @@ import { CodeHighlightProvider } from '@/providers/CodeHighlightProvider';
 
 import '@mantine/core/styles.css';
 import '@mantine/nprogress/styles.css';
+import { AnalyticsProvider } from '@/providers/AnalyticsProvider';
 
 const pressStart2P = Press_Start_2P({
   variable: '--font-press-start-2p',
@@ -77,11 +78,13 @@ export default async function LocaleLayout({
       <body className={`${pressStart2P.variable} ${vt323.variable}`}>
         <NextIntlClientProvider>
           <MantineProvider defaultColorScheme="auto" theme={theme}>
-            <CodeHighlightProvider>
-              <NavigationProgress />
-              <HotKeysHandler />
-              {children}
-            </CodeHighlightProvider>
+            <AnalyticsProvider>
+              <CodeHighlightProvider>
+                <NavigationProgress />
+                <HotKeysHandler />
+                {children}
+              </CodeHighlightProvider>
+            </AnalyticsProvider>
           </MantineProvider>
         </NextIntlClientProvider>
       </body>
