@@ -29,10 +29,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
             <Image
               src={articleCover?.file.url}
               alt={article.properties.Title.title[0].plain_text}
-              height={180}
+              height={200}
             />
           ) : (
-            <Flex mih={180} bg="#444" justify="center" align="center">
+            <Flex mih={200} miw={200} bg="#444" justify="center" align="center">
               <IconPhotoOff />
             </Flex>
           )}

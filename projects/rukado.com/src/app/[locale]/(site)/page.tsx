@@ -9,7 +9,7 @@ export default function HomePage() {
       <Hero1 />
       {/* <ToolsShowcase /> */}
       <TechnologiesMarquee />
-      <LatestArticles />
+      <LatestArticles containerSize="xs" />
     </Stack>
   );
 }
