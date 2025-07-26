@@ -196,6 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36208a71550cd24cabf45bc00afc5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redColorDuration: 1
+  currentTimeInGame: 0
+  lastTimeWasDamaged: 0
 --- !u!212 &107163441
 SpriteRenderer:
   m_ObjectHideFlags: 0
