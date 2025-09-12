@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.12.0",
     "miragejs": "^0.1.43",
     "polished": "^4.2.2",
     "react": "^18.0.0",
