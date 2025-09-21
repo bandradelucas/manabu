@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerDashState dashState { get; private set; }
+    public PlayerBasicAttackState basicAttackState { get; private set; }
+    [Header("Attack")]
+    public Vector2 attackVelocity;
+    public float attackVelocityDuration = .1f;
 
     [Header("Movement")]
     public float moveSpeed = 8f;
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "wallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "jumpAndFall");
         dashState = new PlayerDashState(this, stateMachine, "dash");
+        basicAttackState = new PlayerBasicAttackState(this, stateMachine, "basicAttack");
     }
 
 
@@ -74,6 +79,11 @@ public class Player : MonoBehaviour
     {
         HandleCollisionDetection();
         stateMachine.UpdateActivateState();
+    }
+
+    public void CallAnimationTrigger()
+    {
+        stateMachine.currentState.CallAnimationTrigger();
     }
 
     public void SetVelocity(float x, float y)

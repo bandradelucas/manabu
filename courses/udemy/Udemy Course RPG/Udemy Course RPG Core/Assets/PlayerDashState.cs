@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerDashState : EntityState
 {
     private float originalGravityScale;
-    private int dashDirection;1
+    private int dashDirection;
 
     public PlayerDashState(Player player, StateMachine stateMachine, string animatorBoolName) : base(player, stateMachine, animatorBoolName)
     {
