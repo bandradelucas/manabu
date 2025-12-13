@@ -404,8 +404,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5edc76ee5e8914ca97c6d75a1feb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackVelocity: {x: 3, y: 1.5}
+  attackVelocity:
+  - {x: 3, y: 1.5}
+  - {x: 1, y: 2.5}
+  - {x: 5, y: 2.5}
   attackVelocityDuration: 0.1
+  comboResetTime: 1
   moveSpeed: 8
   jumpForce: 12
   wallJumpForce: {x: 6, y: 12}
