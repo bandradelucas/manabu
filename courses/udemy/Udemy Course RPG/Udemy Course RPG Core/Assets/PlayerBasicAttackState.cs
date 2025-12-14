@@ -3,11 +3,13 @@ using UnityEngine;
 public class PlayerBasicAttackState : EntityState
 {
     private float attackVelocityTimer;
-    private const int FirstComboIndex = 1;
+    private float lastTimeAttacked;
+    private bool comboAttackQueued;
+    private int attackDirection;
     private int comboIndex = 1;
     private int comboLimit = 3;
+    private const int FirstComboIndex = 1;
 
-    private float lastTimeAttacked;
 
     public PlayerBasicAttackState(Player player, StateMachine stateMachine, string animatorBoolName) : base(player, stateMachine, animatorBoolName)
     {
@@ -21,7 +23,11 @@ public class PlayerBasicAttackState : EntityState
     {
         base.Enter();
 
+        comboAttackQueued = false;
+
         ResetComboIndexIfNeeded();
+
+        attackDirection = player.moveInput.x != 0 ? (int)player.moveInput.x : player.facingDirection;
 
         player.animator.SetInteger("basicAttackIndex", comboIndex);
         ApplyAttackVelocity();
@@ -32,9 +38,14 @@ public class PlayerBasicAttackState : EntityState
         base.Update();
         HandleAttackVelocity();
 
+        if (player.input.Player.Attack.WasPressedThisFrame())
+        {
+            QueueNextAttack();
+        }
+
         if (triggerCalled)
         {
-            stateMachine.ChangeState(player.idleState);
+            HandleStateExit();
         }
     }
 
@@ -43,6 +54,27 @@ public class PlayerBasicAttackState : EntityState
         base.Exit();
         comboIndex++;
         lastTimeAttacked = Time.time;
+    }
+
+    private void HandleStateExit()
+    {
+        if (comboAttackQueued)
+        {
+            player.animator.SetBool(animatorBoolName, false);
+            player.EnterAttackStateWithDelay();
+        }
+        else
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
+    }
+
+    private void QueueNextAttack()
+    {
+        if (comboIndex < comboLimit)
+        {
+            comboAttackQueued = true;
+        }
     }
 
     private void ResetComboIndexIfNeeded()
@@ -72,6 +104,6 @@ public class PlayerBasicAttackState : EntityState
     {
         Vector2 attackVelocity = player.attackVelocity[comboIndex - 1];
         attackVelocityTimer = player.attackVelocityDuration;
-        player.SetVelocity(attackVelocity.x * player.facingDirection, attackVelocity.y);
+        player.SetVelocity(attackVelocity.x * attackDirection, attackVelocity.y);
     }
 }
